@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
+  Plug 'rking/ag.vim'
 call plug#end()
 
 " Map the leader key to SPACE
@@ -93,6 +94,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 " }
 
 " Syntastic recommended settings TODO: revisit these {
+  let g:syntastic_check_on_open=1
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
@@ -134,7 +136,7 @@ let g:syntastic_check_on_wq = 0
     set grepprg=ag\ --nogroup\ --nocolor
 
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
@@ -146,6 +148,10 @@ let g:syntastic_check_on_wq = 0
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
+" }
+
+" ag.vim {
+  let g:ag_working_path_mode="r"  " search from project root instead of the default cwd
 " }
 
 " CtrlP {

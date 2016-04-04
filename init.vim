@@ -5,10 +5,14 @@ call plug#begin()
   Plug 'scrooloose/syntastic'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
   Plug 'rking/ag.vim'
+  Plug 'terryma/vim-expand-region'
 call plug#end()
 
 " Map the leader key to SPACE
@@ -158,6 +162,14 @@ let g:syntastic_check_on_wq = 0
   nnoremap <Leader>o :CtrlP<CR>           " Open file menu
   nnoremap <Leader>b :CtrlPBuffer<CR>     " Open buffer menu
   nnoremap <Leader>f :CtrlPMRUFiles<CR>   " Open most recently used files
+
+" Region Expanding {
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+" }
+
+" Shortcuts {
+  nnoremap <Leader>w :w<CR>               " Save using <Space>w
 " }
 
 " Airline {

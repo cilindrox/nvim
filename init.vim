@@ -1,8 +1,9 @@
+" Enable true color GUI
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 call plug#begin()
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
-  Plug 'scrooloose/syntastic'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
@@ -13,6 +14,11 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'rking/ag.vim'
   Plug 'terryma/vim-expand-region'
+  Plug 'othree/yajs.vim'
+  Plug 'mhartington/oceanic-next'
+  Plug 'benekastah/neomake'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/neosnippet.vim'
 call plug#end()
 
 " Map the leader key to SPACE
@@ -23,6 +29,9 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 " nnoremap ; :    " Use ; for commands.
 " nnoremap Q @q   " Use Q to execute default register.
@@ -67,6 +76,9 @@ nnoremap <Down> :echoe "Use j"<CR>
 
   set display+=lastline
   set nostartofline       " Do not jump to first character with page commands.
+
+  set nojoinspaces        " Don't add extra space after ., !, etc. when joining
+  set formatoptions+=j    " Delete comment character when joining commented lines
 " }
 
 " GUI Options {
@@ -79,8 +91,11 @@ nnoremap <Down> :echoe "Use j"<CR>
   nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
   " Relative numbering
-  autocmd InsertEnter * :set relativenumber
-  autocmd InsertLeave * :set number norelativenumber
+  autocmd InsertEnter * :set norelativenumber
+  autocmd InsertLeave * :set relativenumber number
+
+  set relativenumber
+  set number
 
   " Sets a status line. If in a Git repository, shows the current branch.
   " Also shows the current file name, line and column number.
@@ -97,11 +112,11 @@ nnoremap <Down> :echoe "Use j"<CR>
   endif
 " }
 
-" Syntastic recommended settings TODO: revisit these {
-  let g:syntastic_check_on_open=1
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
+" Theme {
+  syntax enable
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  colorscheme OceanicNext
+  set background=dark
 " }
 
 " Tell Vim which characters to show for expanded TABs,
@@ -114,11 +129,6 @@ set list                " Show problematic characters.
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Search and completion settings {
   set hlsearch            " Highlights search terms
@@ -168,8 +178,14 @@ let g:syntastic_check_on_wq = 0
   vmap <C-v> <Plug>(expand_region_shrink)
 " }
 
+" NERDTree {
+  let NERDTreeQuitOnOpen=1
+" }
+
 " Shortcuts {
-  nnoremap <Leader>w :w<CR>               " Save using <Space>w
+  nnoremap <Leader>w :w<CR>
+  nnoremap c> *``cgn
+  nnoremap c< #``cgN
 " }
 
 " Airline {
@@ -183,7 +199,7 @@ let g:syntastic_check_on_wq = 0
   let g:airline_left_alt_sep = '|'
   let g:airline_right_sep = ' '
   let g:airline_right_alt_sep = '|'
-  let g:airline_theme= 'bubblegum'
+  let g:airline_theme= 'base16_ocean'
 " }
 
 " Go {

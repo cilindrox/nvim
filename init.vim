@@ -1,6 +1,3 @@
-" Enable true color GUI
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 call plug#begin()
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
@@ -19,6 +16,7 @@ call plug#begin()
   Plug 'benekastah/neomake'
   Plug 'Shougo/deoplete.nvim'
   Plug 'Shougo/neosnippet.vim'
+  Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Map the leader key to SPACE
@@ -40,20 +38,23 @@ let g:deoplete#enable_at_startup = 1
 
   set showcmd             " Show (partial) command in status line.
   set showmatch           " Show matching brackets.
-  set showmode            " Show current mode.
   set ruler               " Show the line and column numbers of the cursor.
   set number              " Show the line numbers on the left side.
+  set relativenumber      " Hybrid line numbering
+  set numberwidth=5
   set formatoptions+=o    " Continue comment marker in new lines.
-  set textwidth=0         " Hard-wrap long lines as you type them.
   set expandtab           " Insert spaces when TAB is pressed.
   set tabstop=2           " Render TABs using this many spaces.
   set shiftwidth=2        " Indentation amount for < and > commands.
+
+  " Make it obvious where 80 characters is
+  set textwidth=80
+  set colorcolumn=+1
 
   set noerrorbells        " No beeps.
   set modeline            " Enable modeline.
   set esckeys             " Cursor keys in insert mode.
   set linespace=0         " Set line-spacing to minimum.
-  set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 
   set autoread            " If file updates, load automatically.
   set autochdir           " Switch to current file's parent directory.
@@ -94,9 +95,6 @@ let g:deoplete#enable_at_startup = 1
   autocmd InsertEnter * :set norelativenumber
   autocmd InsertLeave * :set relativenumber number
 
-  set relativenumber
-  set number
-
   " Sets a status line. If in a Git repository, shows the current branch.
   " Also shows the current file name, line and column number.
   if has('statusline')
@@ -118,17 +116,6 @@ let g:deoplete#enable_at_startup = 1
   colorscheme OceanicNext
   set background=dark
 " }
-
-" Tell Vim which characters to show for expanded TABs,
-" trailing whitespace, and end-of-lines. VERY useful!
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
-set list                " Show problematic characters.
-
-" Also highlight all tabs and trailing whitespace characters.
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$\|\t/
 
 " Search and completion settings {
   set hlsearch            " Highlights search terms

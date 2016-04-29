@@ -15,6 +15,7 @@ call plug#begin()
   Plug 'mhartington/oceanic-next'
   Plug 'benekastah/neomake'
   Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/neosnippet-snippets'
   Plug 'Shougo/neosnippet.vim'
   Plug 'editorconfig/editorconfig-vim'
 call plug#end()
@@ -173,6 +174,19 @@ let g:deoplete#enable_at_startup = 1
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
+" }
+
+" Copy to clipboard {
+  set clipboard+=unnamedplus
+
+  vnoremap  <leader>y  "+y
+  nnoremap  <leader>Y  "+yg_
+  nnoremap  <leader>y  "+y
+
+  nnoremap <leader>p "+p
+  nnoremap <leader>P "+P
+  vnoremap <leader>p "+p
+  vnoremap <leader>P "+P
 " }
 
 " Airline {

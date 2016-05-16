@@ -6,6 +6,7 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-dispatch'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
@@ -156,21 +157,24 @@ let g:deoplete#enable_at_startup = 1
   let g:ag_working_path_mode="r"  " search from project root instead of the default cwd
 " }
 
-" CtrlP {
-  nnoremap <Leader>o :CtrlP<CR>           " Open file menu
-  nnoremap <Leader>b :CtrlPBuffer<CR>     " Open buffer menu
-  nnoremap <Leader>f :CtrlPMRUFiles<CR>   " Open most recently used files
-
-" Region Expanding {
-  vmap v <Plug>(expand_region_expand)
-  vmap <C-v> <Plug>(expand_region_shrink)
-" }
-
 " NERDTree {
   let NERDTreeQuitOnOpen=1
 " }
 
+" Dispatch {
+  autocmd FileType javascript let b:dispatch = 'npm t'
+  nnoremap <F9> :Dispatch<CR>
+" }
+
 " Shortcuts {
+  " Open file menu
+  nnoremap <Leader>o :CtrlP<CR>
+  " Open buffer menu
+  nnoremap <Leader>b :CtrlPBuffer<CR>
+  " Open most recently used files
+  nnoremap <Leader>f :CtrlPMRUFiles<CR>
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN

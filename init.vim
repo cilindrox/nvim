@@ -46,6 +46,14 @@ let g:deoplete#enable_at_startup = 1
   set expandtab           " Insert spaces when TAB is pressed.
   set tabstop=2           " Render TABs using this many spaces.
   set shiftwidth=2        " Indentation amount for < and > commands.
+  set shiftround
+
+  " When the type of shell script is /bin/sh, assume a POSIX-compatible
+  " shell for syntax highlighting purposes.
+  let g:is_posix = 1
+
+  " Display extra whitespace
+  set list listchars=tab:»·,trail:·,nbsp:·
 
   " Make it obvious where 80 characters is
   set textwidth=80
@@ -58,6 +66,8 @@ let g:deoplete#enable_at_startup = 1
 
   set autoread            " If file updates, load automatically.
   set autochdir           " Switch to current file's parent directory.
+
+  set noshowmode          " Disable default mode indicator (use airline)
 
   " Remove special characters for filename
   set isfname-=:
@@ -106,7 +116,7 @@ let g:deoplete#enable_at_startup = 1
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
-    "set statusline+=%{fugitive#statusline()} " Git Hotness
+    " set statusline+=%{fugitive#statusline()} " Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " Filetype
     set statusline+=\ [%{getcwd()}]          " Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -195,7 +205,8 @@ let g:deoplete#enable_at_startup = 1
 " }
 
 " Airline {
-  let g:airline#extensions#tabline#enabled = 2
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_min_count = 2
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '|'

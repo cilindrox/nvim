@@ -33,9 +33,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
-" nnoremap ; :    " Use ; for commands.
-" nnoremap Q @q   " Use Q to execute default register.
-
 " Configuration {
 
   set showcmd             " Show (partial) command in status line.
@@ -43,6 +40,7 @@ let g:deoplete#enable_at_startup = 1
   set ruler               " Show the line and column numbers of the cursor.
   set number              " Show the line numbers on the left side.
   set relativenumber      " Hybrid line numbering
+  set cursorline          " Highlight the current line
   set numberwidth=5
   set formatoptions+=o    " Continue comment marker in new lines.
   set expandtab           " Insert spaces when TAB is pressed.
@@ -70,6 +68,12 @@ let g:deoplete#enable_at_startup = 1
   set splitbelow          " Horizontal split below current.
   set splitright          " Vertical split to right of current.
 
+  " Quicker window movement
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+
   if !&scrolloff
     set scrolloff=3       " Show next 3 lines while scrolling.
   endif
@@ -89,9 +93,6 @@ let g:deoplete#enable_at_startup = 1
   set guioptions-=T " Removes top toolbar
   set guioptions-=r " Removes right hand scroll bar
   set go-=L " Removes left hand scroll bar<Paste>
-
-  "Toggle menubar
-  nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
   " Relative numbering
   autocmd InsertEnter * :set norelativenumber

@@ -14,7 +14,7 @@ call plug#begin()
   Plug 'terryma/vim-expand-region'
   Plug 'othree/yajs.vim'
   Plug 'mhartington/oceanic-next'
-  Plug 'benekastah/neomake'
+  Plug 'neomake/neomake'
   Plug 'Shougo/deoplete.nvim'
   Plug 'Shougo/neosnippet-snippets'
   Plug 'Shougo/neosnippet.vim'
@@ -217,6 +217,11 @@ let g:deoplete#enable_at_startup = 1
   let g:airline_right_sep = ' '
   let g:airline_right_alt_sep = '|'
   let g:airline_theme= 'base16_ocean'
+" }
+
+" NeoMake {
+  autocmd! BufWritePost,BufEnter * Neomake
+  let g:neomake_javascript_enabled_makers = ['eslint']
 " }
 
 " Go {

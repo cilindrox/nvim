@@ -6,6 +6,7 @@ call plug#begin()
   Plug 'chriskempson/base16-vim'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'elzr/vim-json'
   Plug 'mhartington/oceanic-next'
   Plug 'neomake/neomake'
   Plug 'othree/yajs.vim'
@@ -36,7 +37,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 let g:deoplete#enable_at_startup = 1
 
 " Configuration {
-
   set showcmd             " Show (partial) command in status line.
   set showmatch           " Show matching brackets.
   set ruler               " Show the line and column numbers of the cursor.
@@ -98,17 +98,14 @@ let g:deoplete#enable_at_startup = 1
 
   set nojoinspaces        " Don't add extra space after ., !, etc. when joining
   set formatoptions+=j    " Delete comment character when joining commented lines
-" }
 
-" GUI Options {
-  set guioptions-=m " Removes top menubar
-  set guioptions-=T " Removes top toolbar
-  set guioptions-=r " Removes right hand scroll bar
-  set go-=L " Removes left hand scroll bar<Paste>
-
-  " Relative numbering
   autocmd InsertEnter * :set norelativenumber
   autocmd InsertLeave * :set relativenumber number
+
+  set foldmethod=indent   "fold based on indent
+  set foldnestmax=3       "deepest fold is 3 levels
+  set nofoldenable        "dont fold by default
+  autocmd FileType json setlocal foldmethod=syntax
 " }
 
 " Theme {

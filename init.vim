@@ -1,24 +1,26 @@
 call plug#begin()
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-dispatch'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'rking/ag.vim'
-  Plug 'terryma/vim-expand-region'
-  Plug 'othree/yajs.vim'
-  Plug 'mhartington/oceanic-next'
-  Plug 'neomake/neomake'
   Plug 'Shougo/deoplete.nvim'
   Plug 'Shougo/neosnippet-snippets'
   Plug 'Shougo/neosnippet.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'chriskempson/base16-vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'mhartington/oceanic-next'
+  Plug 'neomake/neomake'
+  Plug 'othree/yajs.vim'
+  Plug 'rking/ag.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'terryma/vim-expand-region'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
 " Map the leader key to SPACE
@@ -107,20 +109,6 @@ let g:deoplete#enable_at_startup = 1
   " Relative numbering
   autocmd InsertEnter * :set norelativenumber
   autocmd InsertLeave * :set relativenumber number
-
-  " Sets a status line. If in a Git repository, shows the current branch.
-  " Also shows the current file name, line and column number.
-  if has('statusline')
-    set laststatus=2
-
-    " Broken down into easily includeable segments
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
-    " set statusline+=%{fugitive#statusline()} " Git Hotness
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-  endif
 " }
 
 " Theme {
@@ -206,7 +194,6 @@ let g:deoplete#enable_at_startup = 1
 
 " Airline {
   let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#buffer_min_count = 2
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '|'

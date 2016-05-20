@@ -7,6 +7,7 @@ call plug#begin()
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'elzr/vim-json'
+  Plug 'fatih/vim-go'
   Plug 'mhartington/oceanic-next'
   Plug 'neomake/neomake'
   Plug 'othree/yajs.vim'
@@ -209,8 +210,18 @@ let g:deoplete#enable_at_startup = 1
 " }
 
 " Go {
+  " lint on save
   set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
   autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+
   " format with goimports instead of gofmt
   let g:go_fmt_command = "goimports"
+
+  " blinkenlichten
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_interfaces = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
 " }

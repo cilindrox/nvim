@@ -100,7 +100,10 @@ let g:deoplete#enable_at_startup = 1
   set foldmethod=indent   "fold based on indent
   set foldnestmax=3       "deepest fold is 3 levels
   set nofoldenable        "dont fold by default
+
   autocmd FileType json setlocal foldmethod=syntax
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
 " }
 
 " Theme {
@@ -178,6 +181,21 @@ let g:deoplete#enable_at_startup = 1
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
+
+  " Tab completion
+  " will insert tab at beginning of line,
+  " will use completion if not at beginning
+  set wildmode=list:longest,list:full
+  function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+      return "\<tab>"
+    else
+      return "\<c-n>"
+    endif
+  endfunction
+  inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+  inoremap <S-Tab> <c-n>
 " }
 
 " Copy to clipboard {

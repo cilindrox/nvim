@@ -28,12 +28,6 @@ call plug#end()
 " Map the leader key to SPACE
 let mapleader="\<SPACE>"
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
@@ -164,14 +158,23 @@ let g:deoplete#enable_at_startup = 1
 " }
 
 " Shortcuts {
+  " Get off my lawn
+  nnoremap <Left> :echoe "Use h"<CR>
+  nnoremap <Right> :echoe "Use l"<CR>
+  nnoremap <Up> :echoe "Use k"<CR>
+  nnoremap <Down> :echoe "Use j"<CR>
+
   " Open file menu
   nnoremap <Leader>o :CtrlP<CR>
   " Open buffer menu
   nnoremap <Leader>b :CtrlPBuffer<CR>
   " Open most recently used files
   nnoremap <Leader>f :CtrlPMRUFiles<CR>
+
+  " Smart visual selection
   vmap v <Plug>(expand_region_expand)
   vmap <C-v> <Plug>(expand_region_shrink)
+
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
@@ -201,7 +204,7 @@ let g:deoplete#enable_at_startup = 1
   let g:airline_left_alt_sep = '|'
   let g:airline_right_sep = ' '
   let g:airline_right_alt_sep = '|'
-  let g:airline_theme= 'base16_ocean'
+  let g:airline_theme= 'base16'
 " }
 
 " NeoMake {

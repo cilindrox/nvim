@@ -1,5 +1,6 @@
 call plug#begin()
   Plug 'Shougo/deoplete.nvim'
+  Plug 'SirVer/ultisnips'
   Plug 'airblade/vim-gitgutter'
   Plug 'chriskempson/base16-vim'
   Plug 'ctrlpvim/ctrlp.vim'
@@ -11,7 +12,6 @@ call plug#begin()
   Plug 'othree/yajs.vim'
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree'
-  Plug 'sirver/ultisnips'
   Plug 'terryma/vim-expand-region'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
@@ -27,8 +27,15 @@ call plug#end()
 " Map the leader key to SPACE
 let mapleader="\<SPACE>"
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" Deoplete {
+  let g:deoplete#enable_at_startup = 1
+" }
+
+" {
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" }
 
 " Configuration {
   set showcmd             " Show (partial) command in status line.
@@ -39,9 +46,11 @@ let g:deoplete#enable_at_startup = 1
   set cursorline          " Highlight the current line
   set numberwidth=5
   set formatoptions+=o    " Continue comment marker in new lines.
-  set expandtab           " Insert spaces when TAB is pressed.
-  set tabstop=2           " Render TABs using this many spaces.
-  set shiftwidth=2        " Indentation amount for < and > commands.
+
+  " Soft tabs, 2 spaces by default
+  set expandtab
+  set tabstop=2
+  set shiftwidth=2
   set shiftround
 
   " When the type of shell script is /bin/sh, assume a POSIX-compatible
@@ -180,21 +189,6 @@ let g:deoplete#enable_at_startup = 1
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
-
-  " Tab completion
-  " will insert tab at beginning of line,
-  " will use completion if not at beginning
-  set wildmode=list:longest,list:full
-  function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-      return "\<tab>"
-    else
-      return "\<c-n>"
-    endif
-  endfunction
-  inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-  inoremap <S-Tab> <c-n>
 " }
 
 " Copy to clipboard {
@@ -212,6 +206,9 @@ let g:deoplete#enable_at_startup = 1
 
 " Airline {
   let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#disable_rtp_load = 1
+  let g:airline_extensions = ['quickfix', 'branch', 'hunks', 'ctrlp', 'wordcount', 'whitespace', 'tabline']
+
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '|'

@@ -1,7 +1,5 @@
 call plug#begin()
   Plug 'Shougo/deoplete.nvim'
-  Plug 'Shougo/neosnippet-snippets'
-  Plug 'Shougo/neosnippet.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'chriskempson/base16-vim'
   Plug 'ctrlpvim/ctrlp.vim'
@@ -13,6 +11,7 @@ call plug#begin()
   Plug 'othree/yajs.vim'
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree'
+  Plug 'sirver/ultisnips'
   Plug 'terryma/vim-expand-region'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
@@ -222,7 +221,7 @@ let g:deoplete#enable_at_startup = 1
   let g:airline_left_alt_sep = '|'
   let g:airline_right_sep = ' '
   let g:airline_right_alt_sep = '|'
-  let g:airline_theme= 'base16'
+  let g:airline_theme= 'oceanicnext'
 " }
 
 " NeoMake {

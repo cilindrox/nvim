@@ -6,6 +6,7 @@ call plug#begin()
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'elzr/vim-json'
+  Plug 'ervandew/supertab'
   Plug 'fatih/vim-go'
   Plug 'mhartington/oceanic-next'
   Plug 'neomake/neomake'
@@ -24,15 +25,12 @@ call plug#begin()
   Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
-" Map the leader key to SPACE
-let mapleader="\<SPACE>"
-
-" Deoplete {
+" Completion {
   let g:deoplete#enable_at_startup = 1
-" }
 
-" {
-  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:SuperTabDefaultCompletionType = "<c-n>"
+
+  let g:UltiSnipsExpandTrigger="<c-j>"
   let g:UltiSnipsJumpForwardTrigger="<c-b>"
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " }
@@ -169,6 +167,9 @@ let mapleader="\<SPACE>"
 " }
 
 " Shortcuts {
+  " Map the leader key to SPACE
+  let mapleader="\<SPACE>"
+
   " Get off my lawn
   nnoremap <Left> :echoe "Use h"<CR>
   nnoremap <Right> :echoe "Use l"<CR>
@@ -205,7 +206,6 @@ let mapleader="\<SPACE>"
 " }
 
 " Airline {
-  let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#disable_rtp_load = 1
   let g:airline_extensions = ['quickfix', 'branch', 'hunks', 'ctrlp', 'wordcount', 'whitespace', 'tabline']
 

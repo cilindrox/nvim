@@ -12,8 +12,8 @@ call plug#begin()
   Plug 'neomake/neomake'
   Plug 'othree/yajs.vim'
   Plug 'rking/ag.vim'
-  Plug 'scrooloose/nerdtree'
   Plug 'terryma/vim-expand-region'
+  Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
@@ -69,7 +69,8 @@ call plug#end()
 
   set autoread            " If file updates, load automatically.
   set autochdir           " Switch to current file's parent directory.
-
+  set autowrite           " Automatically save before :next, :make etc.
+  set hidden
   set noshowmode          " Disable default mode indicator (use airline)
 
   " Remove special characters for filename
@@ -126,10 +127,8 @@ call plug#end()
   set smartcase           " Unless you put some caps in your search term
   set fileignorecase
   set wildignorecase
-
   set incsearch           " Incremental search.
   set gdefault            " Use 'g' flag by default with :s/foo/bar/.
-
   set magic               " Use 'magic' patterns (extended regular expressions).
 " }
 
@@ -155,10 +154,6 @@ call plug#end()
 
 " ag.vim {
   let g:ag_working_path_mode="r"  " search from project root instead of the default cwd
-" }
-
-" NERDTree {
-  let NERDTreeQuitOnOpen=1
 " }
 
 " Dispatch {

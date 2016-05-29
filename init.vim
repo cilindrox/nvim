@@ -171,11 +171,9 @@ call plug#end()
   nnoremap <Up> :echoe "Use k"<CR>
   nnoremap <Down> :echoe "Use j"<CR>
 
-  " Open file menu
+  " CtrlP shortcuts
   nnoremap <Leader>o :CtrlP<CR>
-  " Open buffer menu
   nnoremap <Leader>b :CtrlPBuffer<CR>
-  " Open most recently used files
   nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
   " Smart visual selection

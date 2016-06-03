@@ -25,18 +25,6 @@ call plug#begin()
   Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
-" Completion {
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#sources = {}
-  let g:deoplete#sources.javascript = ['buffer', 'ultisnips']
-
-  let g:SuperTabDefaultCompletionType = '<c-n>'
-
-  let g:UltiSnipsExpandTrigger = '<tab>'
-  let g:UltiSnipsJumpForwardTrigger = '<tab>'
-  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-" }
-
 " Configuration {
   set showcmd             " Show (partial) command in status line.
   set showmatch           " Show matching brackets.
@@ -84,12 +72,6 @@ call plug#end()
   set splitbelow          " Horizontal split below current.
   set splitright          " Vertical split to right of current.
 
-  " Quicker window movement
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
-
   if !&scrolloff
     set scrolloff=3       " Show next 3 lines while scrolling.
   endif
@@ -134,6 +116,18 @@ call plug#end()
   set magic               " Use 'magic' patterns (extended regular expressions).
 " }
 
+" Completion {
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#sources = {}
+  let g:deoplete#sources.javascript = ['buffer', 'ultisnips']
+
+  let g:SuperTabDefaultCompletionType = '<c-n>'
+
+  let g:UltiSnipsExpandTrigger = '<tab>'
+  let g:UltiSnipsJumpForwardTrigger = '<tab>'
+  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" }
+
 " The Silver Searcher {
   if executable('ag')
     " Use ag over grep
@@ -149,13 +143,12 @@ call plug#end()
   " bind K to grep word under cursor
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+  " search from project root instead of the default cwd
+  let g:ag_working_path_mode="r"
+
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
-" }
-
-" ag.vim {
-  let g:ag_working_path_mode="r"  " search from project root instead of the default cwd
 " }
 
 " Dispatch {
@@ -173,6 +166,15 @@ call plug#end()
   nnoremap <Up> :echoe "Use k"<CR>
   nnoremap <Down> :echoe "Use j"<CR>
 
+  " Quicker window movement
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+
+  " <jk> exits insert mode
+  inoremap jk <esc>
+
   " CtrlP shortcuts
   nnoremap <Leader>o :CtrlP<CR>
   nnoremap <Leader>b :CtrlPBuffer<CR>
@@ -185,9 +187,8 @@ call plug#end()
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
-" }
 
-" Copy to clipboard {
+  " Copy to clipboard
   set clipboard+=unnamedplus
 
   vnoremap  <leader>y  "+y

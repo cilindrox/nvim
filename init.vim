@@ -105,15 +105,17 @@ call plug#end()
 " }
 
 " Search and completion settings {
+  set incsearch           " Incremental search.
   set hlsearch            " Highlights search terms
   set showmatch           " Highlights matching parentheses
   set ignorecase          " Ignores case when searching
   set smartcase           " Unless you put some caps in your search term
   set fileignorecase
   set wildignorecase
-  set incsearch           " Incremental search.
   set gdefault            " Use 'g' flag by default with :s/foo/bar/.
   set magic               " Use 'magic' patterns (extended regular expressions).
+  set wildmenu            " visual autocomplete for commands
+  set wildmode=longest:full,full
 " }
 
 " Completion {

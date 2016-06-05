@@ -16,10 +16,13 @@ call plug#begin()
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/ReplaceWithRegister'
@@ -85,26 +88,10 @@ call plug#end()
   set nojoinspaces        " Don't add extra space after ., !, etc. when joining
   set formatoptions+=j    " Delete comment character when joining commented lines
 
-  autocmd InsertEnter * :set norelativenumber
-  autocmd InsertLeave * :set relativenumber number
-
   set foldmethod=indent   "fold based on indent
   set foldnestmax=3       "deepest fold is 3 levels
   set nofoldenable        "dont fold by default
 
-  autocmd FileType json setlocal foldmethod=syntax
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-" }
-
-" Theme {
-  syntax enable
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  colorscheme OceanicNext
-  set background=dark
-" }
-
-" Search and completion settings {
   set incsearch           " Incremental search.
   set hlsearch            " Highlights search terms
   set showmatch           " Highlights matching parentheses
@@ -116,6 +103,22 @@ call plug#end()
   set magic               " Use 'magic' patterns (extended regular expressions).
   set wildmenu            " visual autocomplete for commands
   set wildmode=longest:full,full
+
+  autocmd InsertEnter * :set norelativenumber
+  autocmd InsertLeave * :set relativenumber number
+
+  autocmd FileType javascript let b:dispatch = 'npm t'
+  autocmd FileType json setlocal foldmethod=syntax
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+" }
+
+" Theme {
+  syntax enable
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  " set termguicolors
+  colorscheme OceanicNext
+  set background=dark
 " }
 
 " Completion {
@@ -153,11 +156,6 @@ call plug#end()
   nnoremap \ :Ag<SPACE>
 " }
 
-" Dispatch {
-  autocmd FileType javascript let b:dispatch = 'npm t'
-  nnoremap <F9> :Dispatch<CR>
-" }
-
 " Shortcuts {
   " Map the leader key to SPACE
   let mapleader="\<SPACE>"
@@ -185,6 +183,8 @@ call plug#end()
   " Smart visual selection
   vmap v <Plug>(expand_region_expand)
   vmap <C-v> <Plug>(expand_region_shrink)
+
+  nnoremap <F9> :Dispatch<CR>
 
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn

@@ -225,10 +225,6 @@ call plug#end()
 " }
 
 " Go {
-  " lint on save
-  set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-  autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
-
   " format with goimports instead of gofmt
   let g:go_fmt_command = "goimports"
 

@@ -103,6 +103,10 @@ call plug#end()
   set magic               " Use 'magic' patterns (extended regular expressions).
   set wildmenu            " visual autocomplete for commands
   set wildmode=longest:full,full
+" }
+
+augroup vimrcIni
+  autocmd!
 
   autocmd InsertEnter * :set norelativenumber
   autocmd InsertLeave * :set relativenumber number
@@ -111,7 +115,9 @@ call plug#end()
   autocmd FileType json setlocal foldmethod=syntax
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-" }
+
+  autocmd! BufWritePost,BufEnter * Neomake
+augroup END
 
 " Theme {
   syntax enable
@@ -220,7 +226,6 @@ call plug#end()
 " }
 
 " NeoMake {
-  autocmd! BufWritePost,BufEnter * Neomake
   let g:neomake_javascript_enabled_makers = ['eslint']
 " }
 

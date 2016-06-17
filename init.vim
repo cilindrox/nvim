@@ -1,4 +1,5 @@
 call plug#begin()
+  Plug 'AndrewRadev/splitjoin.vim'
   Plug 'Shougo/deoplete.nvim'
   Plug 'SirVer/ultisnips'
   Plug 'airblade/vim-gitgutter'
@@ -8,6 +9,7 @@ call plug#begin()
   Plug 'elzr/vim-json'
   Plug 'ervandew/supertab'
   Plug 'fatih/vim-go'
+  Plug 'junegunn/vim-easy-align'
   Plug 'mhartington/oceanic-next'
   Plug 'neomake/neomake'
   Plug 'othree/yajs.vim'
@@ -16,6 +18,7 @@ call plug#begin()
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
@@ -108,13 +111,16 @@ call plug#end()
 augroup vimrcIni
   autocmd!
 
-  autocmd InsertEnter * :set norelativenumber
-  autocmd InsertLeave * :set relativenumber number
+  au InsertEnter * :set norelativenumber
+  au InsertLeave * :set relativenumber number
 
-  autocmd FileType javascript let b:dispatch = 'npm t'
-  autocmd FileType json setlocal foldmethod=syntax
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+  au FileType javascript let b:dispatch = 'npm t'
+  au FileType json setlocal foldmethod=syntax
+  au BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+
+  " Align GitHub-flavored Markdown tables
+  au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+  au BufRead,BufNewFile *.md set filetype=markdown
 
   autocmd! BufWritePost,BufEnter * Neomake
 augroup END

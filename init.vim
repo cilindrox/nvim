@@ -122,7 +122,7 @@ augroup vimrcIni
   au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
   au BufRead,BufNewFile *.md set filetype=markdown
 
-  autocmd! BufWritePost,BufEnter * Neomake
+  autocmd BufWritePost,BufEnter * Neomake
 augroup END
 
 " Theme {
@@ -147,25 +147,15 @@ augroup END
 
 " The Silver Searcher {
   if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
-
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
     let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
+
+    " search from project root instead of the default cwd
+    let g:ag_working_path_mode="r"
   endif
-
-  " bind K to grep word under cursor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-  " search from project root instead of the default cwd
-  let g:ag_working_path_mode="r"
-
-  " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
 " }
 
 " Shortcuts {

@@ -221,6 +221,10 @@ augroup END
   let g:airline_theme= 'oceanicnext'
 " }
 
+" GitGutter {
+  let g:gitgutter_sign_column_always = 1
+" }
+
 " NeoMake {
   let g:neomake_javascript_enabled_makers = ['eslint']
 " }

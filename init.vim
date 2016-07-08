@@ -136,7 +136,7 @@ augroup END
 " Completion {
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#sources = {}
-  let g:deoplete#sources.javascript = ['buffer', 'ultisnips']
+  let g:deoplete#sources.javascript = ['buffer', 'ultisnips', 'file']
 
   let g:SuperTabDefaultCompletionType = '<c-n>'
 

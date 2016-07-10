@@ -9,6 +9,7 @@ call plug#begin()
   Plug 'elzr/vim-json'
   Plug 'ervandew/supertab'
   Plug 'fatih/vim-go'
+  Plug 'itchyny/lightline.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'mhartington/oceanic-next'
   Plug 'neomake/neomake'
@@ -26,8 +27,6 @@ call plug#begin()
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
@@ -67,7 +66,7 @@ call plug#end()
   set autochdir           " Switch to current file's parent directory.
   set autowrite           " Automatically save before :next, :make etc.
   set hidden
-  set noshowmode          " Disable default mode indicator (use airline)
+  set noshowmode          " Disable default mode indicator
 
   " Remove special characters for filename
   set isfname-=:
@@ -205,20 +204,50 @@ augroup END
   vnoremap <leader>P "+P
 " }
 
-" Airline {
-  let g:airline#extensions#disable_rtp_load = 1
-  let g:airline_extensions = ['quickfix', 'branch', 'hunks', 'ctrlp', 'wordcount', 'whitespace', 'tabline']
+" Lightline {
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'fugitive', 'filename' ] ]
+  \ },
+  \ 'component_function': {
+  \   'fugitive': 'LightLineFugitive',
+  \   'readonly': 'LightLineReadonly',
+  \   'modified': 'LightLineModified',
+  \   'filename': 'LightLineFilename'
+  \ },
+\ }
 
-  let g:airline#extensions#tabline#fnamemod = ':t'
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline#extensions#tabline#right_sep = ' '
-  let g:airline#extensions#tabline#right_alt_sep = '|'
-  let g:airline_left_sep = ' '
-  let g:airline_left_alt_sep = '|'
-  let g:airline_right_sep = ' '
-  let g:airline_right_alt_sep = '|'
-  let g:airline_theme= 'oceanicnext'
+function! LightLineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineReadonly()
+  if &filetype == "help"
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
 " }
 
 " GitGutter {

@@ -11,7 +11,6 @@ call plug#begin()
   Plug 'fatih/vim-go'
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/vim-easy-align'
-  Plug 'mhartington/oceanic-next'
   Plug 'neomake/neomake'
   Plug 'othree/yajs.vim'
   Plug 'rking/ag.vim'
@@ -128,7 +127,7 @@ augroup END
   syntax enable
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   " set termguicolors
-  colorscheme OceanicNext
+  colorscheme base16-grayscale
   set background=dark
 " }
 
@@ -154,6 +153,9 @@ augroup END
 
     " search from project root instead of the default cwd
     let g:ag_working_path_mode="r"
+
+    set grepprg=ag\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
   endif
 " }
 

@@ -125,8 +125,7 @@ augroup END
 
 " Theme {
   syntax enable
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  " set termguicolors
+  set termguicolors
   colorscheme base16-grayscale-light
   set background=dark
 " }

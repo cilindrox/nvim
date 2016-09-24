@@ -13,7 +13,6 @@ call plug#begin()
   Plug 'junegunn/vim-easy-align'
   Plug 'neomake/neomake'
   Plug 'othree/yajs.vim'
-  Plug 'rking/ag.vim'
   Plug 'terryma/vim-expand-region'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-commentary'

@@ -49,7 +49,7 @@ call plug#end()
   let g:is_posix = 1
 
   " Display extra whitespace
-  set list listchars=tab:»·,trail:·,nbsp:·
+  set list listchars=tab:»·,trail:·,nbsp:·,eol:¬
 
   " Make it obvious where 80 characters is
   set textwidth=80
@@ -103,6 +103,9 @@ call plug#end()
   set magic               " Use 'magic' patterns (extended regular expressions).
   set wildmenu            " visual autocomplete for commands
   set wildmode=longest:full,full
+
+  " Always use vertical diffs
+  set diffopt+=vertical
 " }
 
 augroup vimrcIni
@@ -120,12 +123,20 @@ augroup vimrcIni
   au BufRead,BufNewFile *.md set filetype=markdown
 
   autocmd BufWritePost,BufEnter * Neomake
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 augroup END
 
 " Theme {
   syntax enable
   set termguicolors
-  colorscheme base16-grayscale-light
+  colorscheme base16-default-light
   set background=dark
 " }
 

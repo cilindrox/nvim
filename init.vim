@@ -183,6 +183,15 @@ augroup END
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
   nnoremap <C-l> <C-w>l
+  " Visual mode
+  xnoremap <C-h> <C-w>h
+  xnoremap <C-j> <C-w>j
+  xnoremap <C-k> <C-w>k
+  xnoremap <C-l> <C-w>l
+
+  " Beginning and end of line shortcuts in command mode
+  cnoremap <C-a> <Home>
+  cnoremap <C-e> <End>
 
   " <jk> exits insert mode
   inoremap jk <esc>

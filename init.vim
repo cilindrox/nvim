@@ -3,7 +3,9 @@ call plug#begin()
   Plug 'Shougo/deoplete.nvim'
   Plug 'SirVer/ultisnips'
   Plug 'airblade/vim-gitgutter'
+  Plug 'andrewstuart/vim-kubernetes'
   Plug 'chriskempson/base16-vim'
+  Plug 'christianrondeau/vim-base64'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
   Plug 'editorconfig/editorconfig-vim'
@@ -14,6 +16,7 @@ call plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'kchmck/vim-coffee-script'
+  Plug 'mustache/vim-mustache-handlebars'
   Plug 'nelstrom/vim-visual-star-search'
   Plug 'neomake/neomake'
   Plug 'nginx/nginx', {'rtp': '/contrib/vim/'}

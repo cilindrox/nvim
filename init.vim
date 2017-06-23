@@ -27,7 +27,7 @@ call plug#begin()
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-sensible'
+  " Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
@@ -63,7 +63,11 @@ call plug#end()
 
   set noerrorbells        " No beeps.
   set modeline            " Enable modeline.
-  set esckeys             " Cursor keys in insert mode.
+  " set esckeys             " Cursor keys in insert mode.
+  set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+		  \,sm:block-blinkwait175-blinkoff150-blinkon175
+
   set linespace=0         " Set line-spacing to minimum.
 
   set autoread            " If file updates, load automatically.
@@ -123,6 +127,8 @@ augroup vimrcIni
   au FileType javascript let b:dispatch = 'npm t'
   au FileType json setlocal foldmethod=syntax
   au BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+
+  au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 
   " Align GitHub-flavored Markdown tables
   au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
@@ -293,6 +299,7 @@ endfunction
   let g:go_highlight_methods = 1
   let g:go_highlight_structs = 1
   let g:go_highlight_interfaces = 1
-  let g:go_highlight_operators = 1
+  let g:go_highlight_operators = 0
+  let g:go_highlight_types = 0
   let g:go_highlight_build_constraints = 1
 " }

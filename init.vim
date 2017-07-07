@@ -1,41 +1,45 @@
-call plug#begin()
-  Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'SirVer/ultisnips'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'andrewstuart/vim-kubernetes'
-  Plug 'chriskempson/base16-vim'
-  Plug 'christianrondeau/vim-base64'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'elixir-lang/vim-elixir'
-  Plug 'elzr/vim-json'
-  Plug 'ervandew/supertab'
-  Plug 'fatih/vim-go'
-  Plug 'itchyny/lightline.vim'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'kchmck/vim-coffee-script'
-  Plug 'mustache/vim-mustache-handlebars'
-  Plug 'nelstrom/vim-visual-star-search'
-  Plug 'neomake/neomake'
-  Plug 'nginx/nginx', {'rtp': '/contrib/vim/'}
-  Plug 'othree/yajs.vim'
-  Plug 'plasticboy/vim-markdown'
-  Plug 'terryma/vim-expand-region'
-  Plug 'tpope/vim-abolish'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-dispatch'
-  Plug 'tpope/vim-endwise'
-  Plug 'tpope/vim-eunuch'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-repeat'
-  " Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-speeddating'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-unimpaired'
-  Plug 'vim-scripts/ReplaceWithRegister'
-call plug#end()
+silent! packadd minpac
+
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type':'opt'})
+
+" Plugins
+call minpac#add('AndrewRadev/splitjoin.vim')
+call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('SirVer/ultisnips')
+call minpac#add('airblade/vim-gitgutter')
+call minpac#add('andrewstuart/vim-kubernetes')
+call minpac#add('chriskempson/base16-vim')
+call minpac#add('christianrondeau/vim-base64')
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('docker/docker', {'rtp': '/contrib/syntax/vim/'})
+call minpac#add('editorconfig/editorconfig-vim')
+call minpac#add('elixir-lang/vim-elixir')
+call minpac#add('elzr/vim-json')
+call minpac#add('ervandew/supertab')
+call minpac#add('fatih/vim-go')
+call minpac#add('itchyny/lightline.vim')
+call minpac#add('junegunn/vim-easy-align')
+call minpac#add('kchmck/vim-coffee-script', {'type':'opt'})
+call minpac#add('mustache/vim-mustache-handlebars')
+call minpac#add('nelstrom/vim-visual-star-search')
+call minpac#add('neomake/neomake')
+call minpac#add('nginx/nginx', {'rtp': '/contrib/vim/'})
+call minpac#add('othree/yajs.vim')
+call minpac#add('plasticboy/vim-markdown')
+call minpac#add('terryma/vim-expand-region')
+call minpac#add('tpope/vim-abolish')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-endwise')
+call minpac#add('tpope/vim-eunuch')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-sensible')
+call minpac#add('tpope/vim-speeddating')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('vim-scripts/ReplaceWithRegister')
 
 " Configuration {
   set showmatch           " Show matching brackets.
@@ -297,3 +301,7 @@ endfunction
   let g:go_highlight_types = 0
   let g:go_highlight_build_constraints = 1
 " }
+
+" minpac commands
+command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()

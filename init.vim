@@ -38,9 +38,7 @@ call plug#begin()
 call plug#end()
 
 " Configuration {
-  set showcmd             " Show (partial) command in status line.
   set showmatch           " Show matching brackets.
-  set ruler               " Show the line and column numbers of the cursor.
   set number              " Show the line numbers on the left side.
   set relativenumber      " Hybrid line numbering
   set cursorline          " Highlight the current line
@@ -73,7 +71,6 @@ call plug#end()
 
   set linespace=0         " Set line-spacing to minimum.
 
-  set autoread            " If file updates, load automatically.
   set autochdir           " Switch to current file's parent directory.
   set autowrite           " Automatically save before :next, :make etc.
   set hidden
@@ -95,18 +92,14 @@ call plug#end()
     set sidescrolloff=5   " Show next 5 columns while side-scrolling.
   endif
 
-  set display+=lastline
   set nostartofline       " Do not jump to first character with page commands.
 
   set nojoinspaces        " Don't add extra space after ., !, etc. when joining
-  set formatoptions+=j    " Delete comment character when joining commented lines
 
   set foldmethod=indent   "fold based on indent
   set foldnestmax=3       "deepest fold is 3 levels
   set nofoldenable        "dont fold by default
 
-  set incsearch           " Incremental search.
-  set hlsearch            " Highlights search terms
   set showmatch           " Highlights matching parentheses
   set ignorecase          " Ignores case when searching
   set smartcase           " Unless you put some caps in your search term
@@ -114,7 +107,6 @@ call plug#end()
   set wildignorecase
   set gdefault            " Use 'g' flag by default with :s/foo/bar/.
   set magic               " Use 'magic' patterns (extended regular expressions).
-  set wildmenu            " visual autocomplete for commands
   set wildmode=longest:full,full
 
   " Always use vertical diffs
@@ -152,7 +144,6 @@ augroup END
   syntax enable
   set termguicolors
   colorscheme base16-default-light
-  set background=dark
 " }
 
 " Completion {

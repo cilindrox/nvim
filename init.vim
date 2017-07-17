@@ -31,6 +31,7 @@ call minpac#add('terryma/vim-expand-region')
 call minpac#add('tpope/vim-abolish')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-dotenv')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-eunuch')
 call minpac#add('tpope/vim-fugitive')
@@ -236,7 +237,7 @@ augroup END
 
 " Lightline {
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
+  \ 'colorscheme': 'powerline',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'filename' ] ]

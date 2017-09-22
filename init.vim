@@ -134,12 +134,15 @@ augroup vimrcIni
   au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
   au BufRead,BufNewFile *.md set filetype=markdown
 
-  autocmd BufWritePost,BufEnter * Neomake
+  au BufWritePost,BufEnter * Neomake
+
+  " Autoread buffer contents on focus change
+  au FocusGained * :checktime
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
+  au BufReadPost *
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif

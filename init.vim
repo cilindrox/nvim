@@ -168,14 +168,9 @@ augroup END
 
 " The Silver Searcher {
   if executable('ag')
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    " Use ag in CtrlP for listing files. Disable caching
     let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-    " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
-
-    " search from project root instead of the default cwd
-    let g:ag_working_path_mode="r"
 
     set grepprg=ag\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m

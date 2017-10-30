@@ -1,46 +1,4 @@
-silent! packadd minpac
-
-call minpac#init()
-call minpac#add('k-takata/minpac', {'type':'opt'})
-
-" Plugins
-call minpac#add('AndrewRadev/splitjoin.vim')
-call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('SirVer/ultisnips')
-call minpac#add('airblade/vim-gitgutter')
-call minpac#add('andrewstuart/vim-kubernetes')
-call minpac#add('chriskempson/base16-vim')
-call minpac#add('christianrondeau/vim-base64')
-call minpac#add('ctrlpvim/ctrlp.vim')
-" call minpac#add('docker/docker', {'rtp': '/contrib/syntax/vim/'})
-call minpac#add('editorconfig/editorconfig-vim')
-call minpac#add('elixir-lang/vim-elixir')
-call minpac#add('elzr/vim-json')
-call minpac#add('ervandew/supertab')
-call minpac#add('fatih/vim-go')
-call minpac#add('itchyny/lightline.vim')
-call minpac#add('junegunn/vim-easy-align')
-call minpac#add('kchmck/vim-coffee-script', {'type':'opt'})
-call minpac#add('mustache/vim-mustache-handlebars')
-call minpac#add('nelstrom/vim-visual-star-search')
-call minpac#add('neomake/neomake')
-" call minpac#add('nginx/nginx', {'rtp': '/contrib/vim/'})
-call minpac#add('othree/yajs.vim')
-call minpac#add('plasticboy/vim-markdown')
-call minpac#add('terryma/vim-expand-region')
-call minpac#add('tpope/vim-abolish')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-dotenv')
-call minpac#add('tpope/vim-endwise')
-call minpac#add('tpope/vim-eunuch')
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-repeat')
-call minpac#add('tpope/vim-sensible')
-call minpac#add('tpope/vim-speeddating')
-call minpac#add('tpope/vim-surround')
-call minpac#add('tpope/vim-unimpaired')
-call minpac#add('vim-scripts/ReplaceWithRegister')
+source ~/.config/nvim/packages.vim
 
 " Configuration {
   set showmatch           " Show matching brackets.
@@ -129,6 +87,7 @@ augroup vimrcIni
   au BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
 
   au BufRead,BufNewFile Jenkinsfile set filetype=groovy
+  au BufNewFile,BufReadPost Procfile set filetype=ruby
 
   " Align GitHub-flavored Markdown tables
   au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>

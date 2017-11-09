@@ -90,7 +90,7 @@ augroup vimrcIni
   au BufNewFile,BufReadPost Procfile set filetype=ruby
 
   " Align GitHub-flavored Markdown tables
-  au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+  au FileType markdown vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
   au BufRead,BufNewFile *.md set filetype=markdown
 
   au BufWritePost,BufEnter * Neomake
@@ -110,7 +110,7 @@ augroup END
 " Theme {
   syntax enable
   set termguicolors
-  colorscheme base16-default-light
+  colorscheme base16-cupcake
 " }
 
 " Completion {

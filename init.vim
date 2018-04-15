@@ -110,7 +110,9 @@ augroup END
 " Theme {
   syntax enable
   set termguicolors
-  colorscheme base16-cupcake
+  " colorscheme base16-cupcake
+  colorscheme base16-grayscale-light
+  hi Search guibg=peru guifg=wheat
 " }
 
 " Completion {

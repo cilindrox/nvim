@@ -7,8 +7,11 @@ Just my NeoVim config settings
 The following installs these settings on your system:
 
 ```bash
-cd ~
-git clone git://github.com/cilindrox/nvim.git ~/.config/nvim
-nvim +PlugInstall +qall
+git clone git://github.com/cilindrox/nvim.git \
+    ~/.config/nvim
+
+# Install minpac
+git clone https://github.com/k-takata/minpac.git \
+    ~/.config/nvim/pack/minpac/opt/minpac
 ```
 

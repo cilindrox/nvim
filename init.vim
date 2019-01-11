@@ -208,15 +208,21 @@ let g:lightline = {
   \ 'colorscheme': 'powerline',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'filename' ] ]
+  \             [ 'fugitive', 'filename' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'fileformat', 'fileencoding', 'filetype', 'obsession' ] ],
   \ },
   \ 'component_function': {
+  \   'filename': 'LightLineFilename',
   \   'fugitive': 'LightLineFugitive',
-  \   'readonly': 'LightLineReadonly',
   \   'modified': 'LightLineModified',
-  \   'filename': 'LightLineFilename'
+  \   'readonly': 'LightLineReadonly',
   \ },
-\ }
+  \ 'component_expand': {
+  \   'obsession': 'LightLineObsession',
+  \ },
+  \ }
 
 function! LightLineModified()
   if &filetype == "help"
@@ -246,6 +252,10 @@ function! LightLineFilename()
   return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineObsession()
+    return '%{ObsessionStatus()}'
 endfunction
 " }
 

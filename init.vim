@@ -74,6 +74,15 @@ source ~/.config/nvim/packages.vim
 
   " Always use vertical diffs
   set diffopt+=vertical
+
+  " Undo history
+  set undofile
+  set undodir=$HOME/.config/nvim/undo
+  " Disable undo for temp and sensitive files
+  augroup vimrc
+    autocmd!
+    autocmd BufWritePre /tmp/* setlocal noundofile
+  augroup END
 " }
 
 augroup vimrcIni

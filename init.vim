@@ -91,17 +91,6 @@ augroup vimrcIni
   au InsertEnter * :set norelativenumber
   au InsertLeave * :set relativenumber number
 
-  au FileType javascript let b:dispatch = 'npm t'
-  au FileType json setlocal foldmethod=syntax
-  au BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-
-  au BufRead,BufNewFile Jenkinsfile set filetype=groovy
-  au BufNewFile,BufReadPost Procfile set filetype=ruby
-
-  " Align GitHub-flavored Markdown tables
-  au FileType markdown vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-  au BufRead,BufNewFile *.md set filetype=markdown
-
   au BufWritePost,BufEnter * Neomake
 
   " Autoread buffer contents on focus change

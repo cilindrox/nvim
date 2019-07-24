@@ -127,8 +127,8 @@ augroup END
 
 " The Silver Searcher {
   if executable('ag')
-    " Use ag in CtrlP for listing files. Disable caching
-    let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
+    " Use ag in CtrlP for listing files.
+    let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
     let g:ctrlp_use_caching = 0
 
     set grepprg=ag\ --vimgrep\ $*

@@ -3,7 +3,7 @@ from snippet_helpers import *
 endglobal
 
 snippet cl "console.log(...)" b
-console.log(${1:${VISUAL}});${0}
+console.log(${0:TARGET});
 endsnippet
 
 snippet ce "console.error(...)" b
@@ -28,4 +28,22 @@ endsnippet
 
 snippet ex "module.exports"
 module.exports = ${1:${VISUAL}};${0}
+endsnippet
+
+snippet me "module.exports"
+module.exports = ${1:${VISUAL}};${0}
+endsnippet
+
+snippet mex "module.exports"
+exports = module.exports = ${1:${VISUAL}};${0}
+endsnippet
+
+snippet req
+const ${2:#name} = require('${3:$2}');
+endsnippet
+
+snippet forof
+for (${1:let} ${2:val} of ${3:#:Things}) {
+	${0:TARGET}
+}
 endsnippet

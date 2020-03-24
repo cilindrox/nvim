@@ -1,12 +1,12 @@
 source ~/.config/nvim/packages.vim
 
 " Configuration {
-  set showmatch           " Show matching brackets.
-  set number              " Show the line numbers on the left side.
-  set relativenumber      " Hybrid line numbering
-  set cursorline          " Highlight the current line
+  set showmatch        " Show matching brackets.
+  set number           " Show the line numbers on the left side.
+  set relativenumber   " Hybrid line numbering
+  set cursorline       " Highlight the current line
   set numberwidth=5
-  set formatoptions+=o    " Continue comment marker in new lines.
+  set formatoptions+=o " Continue comment marker in new lines.
 
   " Soft tabs, 2 spaces by default
   set expandtab
@@ -88,8 +88,8 @@ source ~/.config/nvim/packages.vim
 augroup vimrcIni
   autocmd!
 
-  au InsertEnter * :set norelativenumber
-  au InsertLeave * :set relativenumber number
+  au BufLeave,FocusLost,InsertEnter * :set norelativenumber
+  au BufEnter,FocusGained,InsertLeave * :set relativenumber number
 
   au BufWritePost,BufEnter * Neomake
 
@@ -118,7 +118,7 @@ augroup END
   let g:deoplete#sources = {}
   let g:deoplete#sources.javascript = ['buffer', 'ultisnips', 'file']
 
-  let g:SuperTabDefaultCompletionType = '<c-n>'
+  " call deoplete#custom#source('_', 'min_pattern_length', 4)
 
   let g:UltiSnipsExpandTrigger = '<tab>'
   let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -190,6 +190,9 @@ augroup END
   nnoremap <leader>P "+P
   vnoremap <leader>p "+p
   vnoremap <leader>P "+P
+
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 " }
 
 " Lightline {
@@ -234,7 +237,7 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
+  return exists('*FugitiveHead') ? FugitiveHead() : ''
 endfunction
 
 function! LightLineFilename()

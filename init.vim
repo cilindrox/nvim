@@ -112,6 +112,11 @@ augroup vimrcIni
     \ endif
 augroup END
 
+augroup dispatch
+  autocmd!
+  au FileType javascript let b:dispatch = '/Users/cx/.nvm/versions/node/v12.16.1/bin/npm t'
+augroup END
+
 " Theme {
   syntax enable
   set termguicolors
@@ -125,7 +130,7 @@ augroup END
   let g:deoplete#sources = {}
   let g:deoplete#sources.javascript = ['buffer', 'ultisnips', 'file']
 
-  " call deoplete#custom#source('_', 'min_pattern_length', 4)
+  " call deoplete#custom#option({ 'min_pattern_length': 4 })
 
   let g:UltiSnipsExpandTrigger = '<tab>'
   let g:UltiSnipsJumpForwardTrigger = '<tab>'

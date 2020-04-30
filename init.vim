@@ -34,7 +34,6 @@ source ~/.config/nvim/packages.vim
 
   set noerrorbells        " No beeps.
   set modeline            " Enable modeline.
-  " set esckeys             " Cursor keys in insert mode.
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
 		  \,sm:block-blinkwait175-blinkoff150-blinkon175
@@ -98,8 +97,6 @@ augroup vimrcIni
   au BufLeave,FocusLost,InsertEnter * :set norelativenumber
   au BufEnter,FocusGained,InsertLeave * :set relativenumber number
 
-  au BufWritePost,BufEnter * Neomake
-
   " Autoread buffer contents on focus change
   au FocusGained * :checktime
 
@@ -110,11 +107,6 @@ augroup vimrcIni
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-augroup END
-
-augroup dispatch
-  autocmd!
-  au FileType javascript let b:dispatch = '/Users/cx/.nvm/versions/node/v12.16.1/bin/npm t'
 augroup END
 
 " Theme {
@@ -268,6 +260,7 @@ endfunction
 " }
 
 " NeoMake {
+  call neomake#configure#automake('nrwi', 1000)
   let g:neomake_javascript_enabled_makers = ['eslint']
 " }
 

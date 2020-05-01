@@ -118,12 +118,6 @@ augroup END
 " }
 
 " Completion {
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#sources = {}
-  let g:deoplete#sources.javascript = ['buffer', 'ultisnips', 'file']
-
-  " call deoplete#custom#option({ 'min_pattern_length': 4 })
-
   let g:UltiSnipsExpandTrigger = '<tab>'
   let g:UltiSnipsJumpForwardTrigger = '<tab>'
   let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -257,11 +251,6 @@ endfunction
 
 " GitGutter {
   set signcolumn=yes
-" }
-
-" NeoMake {
-  call neomake#configure#automake('nrwi', 1000)
-  let g:neomake_javascript_enabled_makers = ['eslint']
 " }
 
 " Go {

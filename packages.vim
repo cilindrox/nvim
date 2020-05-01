@@ -6,10 +6,9 @@ if !exists('*minpac#init')
 endif
 
 call minpac#init()
-
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+
 call minpac#add('AndrewRadev/splitjoin.vim')
-call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('SirVer/ultisnips')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('chriskempson/base16-vim')
@@ -24,7 +23,6 @@ call minpac#add('itchyny/lightline.vim')
 call minpac#add('junegunn/vim-easy-align')
 call minpac#add('mustache/vim-mustache-handlebars')
 call minpac#add('nelstrom/vim-visual-star-search')
-call minpac#add('neomake/neomake')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('plasticboy/vim-markdown')
 call minpac#add('terryma/vim-expand-region')

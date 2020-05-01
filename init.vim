@@ -5,7 +5,7 @@ source ~/.config/nvim/packages.vim
   set number           " Show the line numbers on the left side.
   set relativenumber   " Hybrid line numbering
   set cursorline       " Highlight the current line
-  set numberwidth=5
+  set numberwidth=4
   set formatoptions+=o " Continue comment marker in new lines.
 
   " Soft tabs, 2 spaces by default
@@ -19,11 +19,11 @@ source ~/.config/nvim/packages.vim
   let g:is_posix = 1
 
   "netrw use tree style, disable banner
-  let g:netrw_altv = 1
-  let g:netrw_banner = 0
-  let g:netrw_browse_split = 4
-  let g:netrw_liststyle = 3
-  let g:netrw_winsize = 25
+  let g:netrw_altv=1
+  let g:netrw_banner=0
+  let g:netrw_browse_split=4
+  let g:netrw_liststyle=3
+  let g:netrw_winsize=25
 
   " Display extra whitespace
   set list listchars=tab:»·,trail:·,nbsp:·,eol:¬
@@ -166,6 +166,8 @@ augroup END
   nnoremap <Leader>o :CtrlP<CR>
   nnoremap <C-b> :CtrlPBuffer<CR>
   nnoremap <Leader>f :CtrlPMRUFiles<CR>
+
+  nnoremap <Leader>m :Make<CR><C-w><Up>
 
   " Smart visual selection
   vmap v <Plug>(expand_region_expand)

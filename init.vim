@@ -164,7 +164,7 @@ augroup END
 
   " CtrlP shortcuts
   nnoremap <Leader>o :CtrlP<CR>
-  nnoremap <Leader>b :CtrlPBuffer<CR>
+  nnoremap <C-b> :CtrlPBuffer<CR>
   nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
   " Smart visual selection

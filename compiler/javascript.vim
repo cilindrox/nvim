@@ -1,7 +1,7 @@
-if exists("current_compiler")
+if exists('current_compiler')
   finish
 endif
-let current_compiler = "eslint"
+let current_compiler = 'eslint'
 
 setlocal makeprg=eslint\ -f\ compact\ %
 

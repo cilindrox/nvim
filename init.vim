@@ -5,7 +5,7 @@ source ~/.config/nvim/packages.vim
   set number           " Show the line numbers on the left side.
   set relativenumber   " Hybrid line numbering
   set cursorline       " Highlight the current line
-  set numberwidth=4
+  set numberwidth=5
   set formatoptions+=o " Continue comment marker in new lines.
 
   " Soft tabs, 2 spaces by default
@@ -104,7 +104,7 @@ augroup vimrcIni
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   au BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \ if &ft !=? 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
 augroup END
@@ -217,22 +217,22 @@ let g:lightline = {
   \ }
 
 function! LightLineModified()
-  if &filetype == "help"
-    return ""
+  if &filetype ==? 'help'
+    return ''
   elseif &modified
-    return "+"
+    return '+'
   elseif &modifiable
-    return ""
+    return ''
   else
-    return ""
+    return ''
   endif
 endfunction
 
 function! LightLineReadonly()
-  if &filetype == "help"
-    return ""
+  if &filetype ==? 'help'
+    return ''
   else
-    return ""
+    return ''
   endif
 endfunction
 
@@ -241,9 +241,9 @@ function! LightLineFugitive()
 endfunction
 
 function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  return ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+       \ ('' !=? expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
 function! LightLineObsession()
@@ -257,7 +257,7 @@ endfunction
 
 " Go {
   " format with goimports instead of gofmt
-  let g:go_fmt_command = "goimports"
+  let g:go_fmt_command = 'goimports'
 
   " blinkenlichten
   let g:go_highlight_functions = 1

@@ -5,6 +5,7 @@ source ~/.config/nvim/packages.vim
   set number           " Show the line numbers on the left side.
   set relativenumber   " Hybrid line numbering
   set cursorline       " Highlight the current line
+  set signcolumn=yes   " Always on sidecol - used by GitGutter
   set numberwidth=5
   set formatoptions+=o " Continue comment marker in new lines.
 
@@ -242,10 +243,6 @@ endfunction
 function! LightLineObsession()
     return '%{ObsessionStatus()}'
 endfunction
-" }
-
-" GitGutter {
-  set signcolumn=yes
 " }
 
 " Go {

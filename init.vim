@@ -41,7 +41,7 @@ source ~/.config/nvim/packages.vim
 
   set linespace=0         " Set line-spacing to minimum.
 
-  set autochdir           " Switch to current file's parent directory.
+  set autochdir           " Use current file's parent directory as cwd.
   set autowrite           " Automatically save before :next, :make etc.
   set hidden
   set noshowmode          " Disable default mode indicator
@@ -114,7 +114,7 @@ augroup END
   set termguicolors
   " colorscheme base16-cupcake
   colorscheme base16-grayscale-light
-  hi Search guibg=peru guifg=wheat
+  " hi Search guibg=peru guifg=wheat
 " }
 
 " Completion {
@@ -127,7 +127,9 @@ augroup END
   if executable('ag')
     " Use ag in CtrlP for listing files.
     let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-    let g:ctrlp_use_caching = 0
+    let g:ctrlp_use_caching  = 0
+    let g:ctrlp_types        = ['buf', 'fil']
+    let g:ctrlp_extensions   = ['buffertag']
 
     set grepprg=ag\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m
@@ -158,7 +160,6 @@ augroup END
 
   " CtrlP shortcuts
   nnoremap <Leader>o :CtrlP<CR>
-  nnoremap <C-b> :CtrlPBuffer<CR>
   nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
   nnoremap <Leader>m :Make<CR><C-w><Up>

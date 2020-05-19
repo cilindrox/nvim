@@ -43,8 +43,8 @@ source ~/.config/nvim/packages.vim
 
   set autochdir           " Use current file's parent directory as cwd.
   set autowrite           " Automatically save before :next, :make etc.
-  set hidden
-  set noshowmode          " Disable default mode indicator
+  set hidden              " Hide unsaved buffers.
+  set noshowmode          " Disable default mode indicator.
 
   " Remove special characters for filename
   set isfname-=:
@@ -54,6 +54,7 @@ source ~/.config/nvim/packages.vim
   " More natural splits
   set splitbelow          " Horizontal split below current.
   set splitright          " Vertical split to right of current.
+  set diffopt+=vertical   " Always use vertical diffs
 
   if !&scrolloff
     set scrolloff=3       " Show next 3 lines while scrolling.
@@ -63,13 +64,10 @@ source ~/.config/nvim/packages.vim
   endif
 
   set nostartofline       " Do not jump to first character with page commands.
-
   set nojoinspaces        " Don't add extra space after ., !, etc. when joining
-
-  set foldmethod=indent   "fold based on indent
-  set foldnestmax=3       "deepest fold is 3 levels
-  set nofoldenable        "dont fold by default
-
+  set foldmethod=indent   " Fold based on indent
+  set foldnestmax=3       " Deepest fold is 3 levels
+  set nofoldenable        " Dont fold by default
   set showmatch           " Highlights matching parentheses
   set ignorecase          " Ignores case when searching
   set smartcase           " Unless you put some caps in your search term
@@ -78,8 +76,6 @@ source ~/.config/nvim/packages.vim
   set gdefault            " Use 'g' flag by default with :s/foo/bar/.
   set magic               " Use 'magic' patterns (extended regular expressions).
   set wildmode=longest:full,full
-
-  set diffopt+=vertical   " Always use vertical diffs
 
 " Undo history {
   set undofile

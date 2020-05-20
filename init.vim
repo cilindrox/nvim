@@ -15,9 +15,8 @@ source ~/.config/nvim/packages.vim
   set shiftwidth=2
   set shiftround
 
-  " When the type of shell script is /bin/sh, assume a POSIX-compatible
-  " shell for syntax highlighting purposes.
-  let g:is_posix = 1
+  " assumes a POSIX-compatible shell for syntax when script is /bin/sh
+  let g:is_posix= 1
 
   "netrw use tree style, disable banner
   let g:netrw_altv=1
@@ -77,18 +76,14 @@ source ~/.config/nvim/packages.vim
   set magic               " Use 'magic' patterns (extended regular expressions).
   set wildmode=longest:full,full
 
-" Undo history {
-  set undofile
+  set undofile            " Enable undo history
   set undodir=$HOME/.config/nvim/undo
-  " Disable undo for temp and sensitive files
-  augroup vimrc
-    autocmd!
-    autocmd BufWritePre /tmp/* setlocal noundofile
-  augroup END
-" }
 
 augroup vimrcIni
   autocmd!
+
+  " Disable undo for temp and sensitive files
+  au BufWritePre /tmp/* setlocal noundofile
 
   au BufLeave,FocusLost,InsertEnter * :set norelativenumber
   au BufEnter,FocusGained,InsertLeave * :set relativenumber number
@@ -108,7 +103,6 @@ augroup END
 " Theme {
   syntax enable
   set termguicolors
-  " colorscheme base16-cupcake
   colorscheme base16-grayscale-light
   " hi Search guibg=peru guifg=wheat
 " }
@@ -141,7 +135,6 @@ augroup END
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
   nnoremap <C-l> <C-w>l
-  " Visual mode
   xnoremap <C-h> <C-w>h
   xnoremap <C-j> <C-w>j
   xnoremap <C-k> <C-w>k

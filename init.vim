@@ -173,15 +173,6 @@ augroup END
   " Copy to clipboard
   set clipboard+=unnamedplus
 
-  vnoremap  <leader>y  "+y
-  nnoremap  <leader>Y  "+yg_
-  nnoremap  <leader>y  "+y
-
-  nnoremap <leader>p "+p
-  nnoremap <leader>P "+P
-  vnoremap <leader>p "+p
-  vnoremap <leader>P "+P
-
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
 " }
@@ -260,7 +251,6 @@ endfunction
   vnoremap btoa c<c-r>=system('base64 --decode', @")<cr><esc>
   vnoremap atob c<c-r>=system('base64 -w 0', @")<cr><esc>
 " }
-
 
 " minpac commands
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()

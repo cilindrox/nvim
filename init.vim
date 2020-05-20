@@ -154,15 +154,7 @@ augroup END
   " <jk> exits insert mode
   inoremap jk <esc>
 
-  " CtrlP shortcuts
-  nnoremap <Leader>o :CtrlP<CR>
-  nnoremap <Leader>f :CtrlPMRUFiles<CR>
-
   nnoremap <Leader>m :Make<CR><C-w><Up>
-
-  " Smart visual selection
-  vmap v <Plug>(expand_region_expand)
-  vmap <C-v> <Plug>(expand_region_shrink)
 
   nnoremap <F9> :Dispatch<CR>
 

@@ -77,6 +77,7 @@ source ~/.config/nvim/packages.vim
 
   set undofile            " Enable undo history
   set undodir=$HOME/.config/nvim/undo
+" }
 
 augroup vimrcIni
   autocmd!
@@ -162,59 +163,59 @@ augroup END
 " }
 
 " Lightline {
-let g:lightline = {
-  \ 'colorscheme': 'powerline',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'filename' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'fileformat', 'fileencoding', 'filetype', 'obsession' ] ],
-  \ },
-  \ 'component_function': {
-  \   'filename': 'LightLineFilename',
-  \   'fugitive': 'LightLineFugitive',
-  \   'modified': 'LightLineModified',
-  \   'readonly': 'LightLineReadonly',
-  \ },
-  \ 'component_expand': {
-  \   'obsession': 'LightLineObsession',
-  \ },
-  \ }
+  let g:lightline = {
+    \ 'colorscheme': 'powerline',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'fugitive', 'filename' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype', 'obsession' ] ],
+    \ },
+    \ 'component_function': {
+    \   'filename': 'LightLineFilename',
+    \   'fugitive': 'LightLineFugitive',
+    \   'modified': 'LightLineModified',
+    \   'readonly': 'LightLineReadonly',
+    \ },
+    \ 'component_expand': {
+    \   'obsession': 'LightLineObsession',
+    \ },
+    \ }
 
-function! LightLineModified()
-  if &filetype ==? 'help'
-    return ''
-  elseif &modified
-    return '+'
-  elseif &modifiable
-    return ''
-  else
-    return ''
-  endif
-endfunction
+  function! LightLineModified()
+    if &filetype ==? 'help'
+      return ''
+    elseif &modified
+      return '+'
+    elseif &modifiable
+      return ''
+    else
+      return ''
+    endif
+  endfunction
 
-function! LightLineReadonly()
-  if &filetype ==? 'help'
-    return ''
-  else
-    return ''
-  endif
-endfunction
+  function! LightLineReadonly()
+    if &filetype ==? 'help'
+      return ''
+    else
+      return ''
+    endif
+  endfunction
 
-function! LightLineFugitive()
-  return exists('*FugitiveHead') ? FugitiveHead() : ''
-endfunction
+  function! LightLineFugitive()
+    return exists('*FugitiveHead') ? FugitiveHead() : ''
+  endfunction
 
-function! LightLineFilename()
-  return ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-       \ ('' !=? expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
+  function! LightLineFilename()
+    return ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' !=? expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
+  endfunction
 
-function! LightLineObsession()
-    return '%{ObsessionStatus()}'
-endfunction
+  function! LightLineObsession()
+      return '%{ObsessionStatus()}'
+  endfunction
 " }
 
 " Go {
@@ -236,6 +237,7 @@ endfunction
   vnoremap atob c<c-r>=system('base64 -w 0', @")<cr><esc>
 " }
 
-" minpac commands
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+" minpac {
+  command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+  command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+" }

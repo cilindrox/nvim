@@ -9,7 +9,6 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 call minpac#add('SirVer/ultisnips')
-call minpac#add('airblade/vim-gitgutter')
 call minpac#add('chriskempson/base16-vim')
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('editorconfig/editorconfig-vim')

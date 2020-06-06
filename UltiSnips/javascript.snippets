@@ -55,8 +55,15 @@ describe('${1:description}', () => {
 });
 endsnippet
 
-snippet it
+snippet it "tdd it('')" b
 it('${1:description}', () => {
+
+	${0:TARGET}
+});
+endsnippet
+
+snippet ita "tdd async it('')" b
+it('${1:description}', async () => {
 
 	${0:TARGET}
 });

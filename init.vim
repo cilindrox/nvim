@@ -77,6 +77,9 @@ source ~/.config/nvim/packages.vim
 
   set undofile            " Enable undo history
   set undodir=$HOME/.config/nvim/undo
+
+  " Copy to clipboard
+  set clipboard+=unnamedplus
 " }
 
 augroup vimrcIni
@@ -154,9 +157,6 @@ augroup END
   nnoremap <Leader>w :w<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
-
-  " Copy to clipboard
-  set clipboard+=unnamedplus
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)

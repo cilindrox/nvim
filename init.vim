@@ -39,7 +39,7 @@ source ~/.config/nvim/packages.vim
 
   set linespace=0         " Set line-spacing to minimum.
 
-  set autochdir           " Use current file's parent directory as cwd.
+  " set autochdir           " Use current file's parent directory as cwd.
   set autowrite           " Automatically save before :next, :make etc.
   set hidden              " Hide unsaved buffers.
   set noshowmode          " Disable default mode indicator.

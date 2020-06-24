@@ -107,6 +107,8 @@ augroup END
   syntax enable
   set termguicolors
   colorscheme base16-grayscale-light
+
+  " hi Comment cterm=italic gui=italic
   " hi Search guibg=peru guifg=wheat
 " }
 

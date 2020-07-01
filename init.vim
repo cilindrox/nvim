@@ -74,6 +74,7 @@ source ~/.config/nvim/packages.vim
   set gdefault            " Use 'g' flag by default with :s/foo/bar/.
   set magic               " Use 'magic' patterns (extended regular expressions).
   set wildmode=longest:full,full
+  set inccommand=nosplit  " Incrementally highlight substitution command
 
   set undofile            " Enable undo history
   set undodir=$HOME/.config/nvim/undo

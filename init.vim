@@ -28,7 +28,7 @@ source ~/.config/nvim/packages.vim
   set list listchars=tab:»·,trail:·,nbsp:·,eol:¬
 
   " Make it obvious where 80 characters is
-  set textwidth=80
+  set textwidth=100
   set colorcolumn=+1
 
   set noerrorbells        " No beeps.

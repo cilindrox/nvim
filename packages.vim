@@ -5,7 +5,7 @@ if !exists('*minpac#init')
   finish
 endif
 
-call minpac#init()
+call minpac#init({'progress_open': 'none'})
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 call minpac#add('SirVer/ultisnips')

@@ -157,7 +157,7 @@ augroup END
 
   nnoremap <F9> :Dispatch<CR>
 
-  nnoremap <Leader>w :w<CR>
+  nnoremap <Leader>w :up<CR>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
 

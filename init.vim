@@ -66,7 +66,6 @@ source ~/.config/nvim/packages.vim
   set foldmethod=indent   " Fold based on indent
   set foldnestmax=3       " Deepest fold is 3 levels
   set nofoldenable        " Dont fold by default
-  set showmatch           " Highlights matching parentheses
   set ignorecase          " Ignores case when searching
   set smartcase           " Unless you put some caps in your search term
   set fileignorecase

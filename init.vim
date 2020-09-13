@@ -164,60 +164,39 @@ augroup END
   nmap ga <Plug>(EasyAlign)
 " }
 
-" Lightline {
-  let g:lightline = {
-    \ 'colorscheme': 'powerline',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'fugitive', 'filename' ] ],
-    \   'right': [ [ 'lineinfo' ],
-    \              [ 'percent' ],
-    \              [ 'fileformat', 'fileencoding', 'filetype', 'obsession' ] ],
-    \ },
-    \ 'component_function': {
-    \   'filename': 'LightLineFilename',
-    \   'fugitive': 'LightLineFugitive',
-    \   'modified': 'LightLineModified',
-    \   'readonly': 'LightLineReadonly',
-    \ },
-    \ 'component_expand': {
-    \   'obsession': 'LightLineObsession',
-    \ },
-    \ }
+"statusline {
+hi User1 guifg=#FFFFFF guibg=#191f26
+hi User2 guifg=#000000 guibg=#959ca6 gui=BOLD
+hi User3 guifg=#acacac guibg=#595959
 
-  function! LightLineModified()
-    if &filetype ==? 'help'
-      return ''
-    elseif &modified
-      return '+'
-    elseif &modifiable
-      return ''
-    else
-      return ''
-    endif
-  endfunction
+set statusline=
+set statusline+=%2*\ %{g:currentmode[mode()]}\ %*
+set statusline+=%1*\ %.20{StatuslineGit()}
+set statusline+=%1*\ \|\ %.80f\ %m
+set statusline+=%=%{ObsessionStatus()}
+set statusline+=\ \|\ %y\ %*
+set statusline+=%3*
+set statusline+=%3*\ %3p%%\ %*
+set statusline+=%*\ %5l:%-4c
 
-  function! LightLineReadonly()
-    if &filetype ==? 'help'
-      return ''
-    else
-      return ''
-    endif
-  endfunction
+let g:currentmode={
+      \ 'n': 'NORMAL',
+      \ 'v': 'VISUAL',
+      \ 'V': 'V-LINE',
+      \ "\<C-v>": 'V-BLOCK',
+      \ 'i': 'INSERT',
+      \ 'R': 'REPLACE',
+      \ 'Rv': 'V-REPLACE',
+      \ 'c': 'COMMAND',
+      \ 's' : 'SELECT',
+      \ 'S' : 'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ 't': 'TERMINAL',
+    \}
 
-  function! LightLineFugitive()
-    return exists('*FugitiveHead') ? FugitiveHead() : ''
-  endfunction
-
-  function! LightLineFilename()
-    return ('' !=? LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' !=? expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' !=? LightLineModified() ? ' ' . LightLineModified() : '')
-  endfunction
-
-  function! LightLineObsession()
-      return '%{ObsessionStatus()}'
-  endfunction
+function! StatuslineGit()
+  return exists('*FugitiveHead') ? FugitiveHead() : ''
+endfunction
 " }
 
 " Go {

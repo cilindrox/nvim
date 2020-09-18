@@ -1,58 +1,54 @@
 source ~/.config/nvim/packages.vim
 
 " Configuration {
-  set showmatch        " Show matching brackets.
-  set number           " Show the line numbers on the left side.
-  set relativenumber   " Hybrid line numbering
-  set cursorline       " Highlight the current line
+  set showmatch              " Show matching brackets.
+  set number                 " Show the line numbers on the left side.
+  set relativenumber         " Hybrid line numbering
+  set cursorline             " Highlight the current line
+  set autowrite              " Automatically save before :next, :make etc.
+  set hidden                 " Hide unsaved buffers.
+  set noshowmode             " Disable default mode indicator.
   set numberwidth=5
-  set formatoptions+=o " Continue comment marker in new lines.
-
-  " Soft tabs, 2 spaces by default
-  set expandtab
+  set formatoptions+=r       " Continue comment marker in new lines.
+  set textwidth=100          " Break lines at 100 chars. Draw vertical margin.
+  set colorcolumn=+1
+  set linespace=0            " Set line-spacing to minimum.
+  set noerrorbells
+  set nomodeline
+  set nostartofline          " Do not jump to first character with page commands.
+  set nojoinspaces           " Don't add extra space after .! etc. when joining.
+  set nofoldenable           " Dont fold by default
+  set foldmethod=indent
+  set foldnestmax=4
+  set ignorecase             " Ignores case when searching
+  set smartcase              " Unless you put some caps in your search term
+  set fileignorecase
+  set wildignorecase
+  set gdefault               " Use 'g' flag by default with :s/foo/bar/.
+  set magic                  " Use extended regular expressions.
+  set wildmode=longest:full,full
+  set inccommand=nosplit     " Incrementally highlight substitution command
+  set undofile               " Enable undo history, disable swap
+  set undodir=$HOME/.config/nvim/undo//
+  set noswapfile
+  set clipboard+=unnamedplus " Copy to clipboard
+  set expandtab              " Soft tabs, 2 spaces by default
   set tabstop=2
   set shiftwidth=2
   set shiftround
+  set splitbelow             " Horizontal split below current.
+  set splitright             " Vertical split to right of current.
+  set diffopt+=vertical      " Always use vertical diffs
 
-  " assumes a POSIX-compatible shell for syntax when script is /bin/sh
-  let g:is_posix= 1
-
-  "netrw use tree style, disable banner
-  let g:netrw_altv=1
-  let g:netrw_banner=0
-  let g:netrw_browse_split=0
-  " let g:netrw_liststyle=3
-  let g:netrw_winsize=25
-
-  " Display extra whitespace
+  " Display extra whitespace, remove special characters from filename
   set list listchars=tab:»·,trail:·,nbsp:·,eol:¬
-
-  " Make it obvious where 80 characters is
-  set textwidth=100
-  set colorcolumn=+1
-
-  set noerrorbells        " No beeps.
-  set modeline            " Enable modeline.
-  set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-		  \,sm:block-blinkwait175-blinkoff150-blinkon175
-
-  set linespace=0         " Set line-spacing to minimum.
-
-  " set autochdir           " Use current file's parent directory as cwd.
-  set autowrite           " Automatically save before :next, :make etc.
-  set hidden              " Hide unsaved buffers.
-  set noshowmode          " Disable default mode indicator.
-
-  " Remove special characters for filename
   set isfname-=:
   set isfname-==
   set isfname-=+
 
-  " More natural splits
-  set splitbelow          " Horizontal split below current.
-  set splitright          " Vertical split to right of current.
-  set diffopt+=vertical   " Always use vertical diffs
+  set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+		  \,sm:block-blinkwait175-blinkoff150-blinkon175
 
   if !&scrolloff
     set scrolloff=3       " Show next 3 lines while scrolling.
@@ -61,25 +57,28 @@ source ~/.config/nvim/packages.vim
     set sidescrolloff=5   " Show next 5 columns while side-scrolling.
   endif
 
-  set nostartofline       " Do not jump to first character with page commands.
-  set nojoinspaces        " Don't add extra space after ., !, etc. when joining
-  set foldmethod=indent   " Fold based on indent
-  set foldnestmax=3       " Deepest fold is 3 levels
-  set nofoldenable        " Dont fold by default
-  set ignorecase          " Ignores case when searching
-  set smartcase           " Unless you put some caps in your search term
-  set fileignorecase
-  set wildignorecase
-  set gdefault            " Use 'g' flag by default with :s/foo/bar/.
-  set magic               " Use 'magic' patterns (extended regular expressions).
-  set wildmode=longest:full,full
-  set inccommand=nosplit  " Incrementally highlight substitution command
+  " assumes a POSIX-compatible shell for syntax when script is /bin/sh
+  let g:is_posix=1
 
-  set undofile            " Enable undo history
-  set undodir=$HOME/.config/nvim/undo
+  "netrw use tree style, disable banner
+  let g:netrw_altv=1
+  let g:netrw_banner=0
+  let g:netrw_browse_split=0
+  let g:netrw_winsize=25
+" }
 
-  " Copy to clipboard
-  set clipboard+=unnamedplus
+" copy when on remote sessions {
+  function! Osc52Yank()
+    let buffer=system('base64 -w0', @0)
+    let buffer=substitute(buffer, "\n$", "", "")
+    let buffer='\e]52;c;'.buffer.'\x07'
+    silent exe "!echo -ne ".shellescape(buffer)." > ".shellescape("/dev/pts/0")
+  endfunction
+  command! Osc52CopyYank call Osc52Yank()
+  augroup clipboardOsc52
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call Osc52Yank() | endif
+  augroup END
 " }
 
 augroup vimrcIni

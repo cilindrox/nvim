@@ -194,7 +194,7 @@ let g:currentmode={
     \}
 
 function! StatuslineGit()
-  return exists('*FugitiveHead') ? FugitiveHead() : ''
+  return exists('*FugitiveHead') ? FugitiveHead(7) : ''
 endfunction
 " }
 

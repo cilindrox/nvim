@@ -1,6 +1,6 @@
 # nvim
 
-Just my NeoVim config settings
+Just my [NeoVim](https://neovim.io) config settings.
 
 ## Installation
 
@@ -14,5 +14,6 @@ git clone git://github.com/cilindrox/nvim.git \
 git clone https://github.com/k-takata/minpac.git \
     ~/.config/nvim/pack/minpac/opt/minpac
 
+# Start vim and call the plugin manager on your first run
 nvim +PackUpdate +qall
 ```

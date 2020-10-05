@@ -3,8 +3,8 @@ source ~/.config/nvim/packages.vim
 " Configuration {
   set showmatch              " Show matching brackets.
   set number                 " Show the line numbers on the left side.
-  set relativenumber         " Hybrid line numbering
-  set cursorline             " Highlight the current line
+  set relativenumber         " Hybrid line numbering.
+  set cursorline             " Highlight the current line.
   set autowrite              " Automatically save before :next, :make etc.
   set hidden                 " Hide unsaved buffers.
   set noshowmode             " Disable default mode indicator.
@@ -17,35 +17,39 @@ source ~/.config/nvim/packages.vim
   set nomodeline
   set nostartofline          " Do not jump to first character with page commands.
   set nojoinspaces           " Don't add extra space after .! etc. when joining.
-  set nofoldenable           " Dont fold by default
+  set nofoldenable           " Don't fold by default.
   set foldmethod=indent
   set foldnestmax=4
-  set ignorecase             " Ignores case when searching
-  set smartcase              " Unless you put some caps in your search term
+  set ignorecase             " Ignores case when searching.
+  set smartcase              " ...Unless you put some caps in your search term.
   set fileignorecase
   set wildignorecase
   set gdefault               " Use 'g' flag by default with :s/foo/bar/.
   set magic                  " Use extended regular expressions.
   set wildmode=longest:full,full
-  set inccommand=nosplit     " Incrementally highlight substitution command
-  set undofile               " Enable undo history, disable swap
+  set inccommand=nosplit     " Incrementally highlight substitution command.
+  set undofile               " Enable undo history, disable swap.
   set undodir=$HOME/.config/nvim/undo//
   set noswapfile
-  set clipboard+=unnamedplus " Copy to clipboard
-  set expandtab              " Soft tabs, 2 spaces by default
+  set clipboard+=unnamedplus " Copy to clipboard.
+  set expandtab              " Soft tabs, 2 spaces by default.
   set tabstop=2
   set shiftwidth=2
   set shiftround
   set splitbelow             " Horizontal split below current.
   set splitright             " Vertical split to right of current.
-  set diffopt+=vertical      " Always use vertical diffs
+  set diffopt+=vertical      " Always use vertical diffs.
 
-  " Display extra whitespace, remove special characters from filename
+  " Display extra whitespace.
   set list listchars=tab:»·,trail:·,nbsp:·,eol:¬
+  " Remove special characters from filename.
   set isfname-=:
   set isfname-==
   set isfname-=+
 
+  set timeoutlen=500         " User input timeout window
+
+  " Blinking block cursor
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
 		  \,sm:block-blinkwait175-blinkoff150-blinkon175
@@ -60,7 +64,7 @@ source ~/.config/nvim/packages.vim
   " assumes a POSIX-compatible shell for syntax when script is /bin/sh
   let g:is_posix=1
 
-  "netrw use tree style, disable banner
+  " netrw use tree style, disable banner
   let g:netrw_altv=1
   let g:netrw_banner=0
   let g:netrw_browse_split=0
@@ -112,21 +116,21 @@ augroup END
 " }
 
 " Completion {
-  let g:UltiSnipsExpandTrigger = '<tab>'
-  let g:UltiSnipsJumpForwardTrigger = '<tab>'
+  let g:UltiSnipsExpandTrigger       = '<tab>'
+  let g:UltiSnipsJumpForwardTrigger  = '<tab>'
   let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " }
 
 " The Silver Searcher {
   if executable('ag')
+    set grepprg=ag\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
+
     " Use ag in CtrlP for listing files.
     let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
     let g:ctrlp_use_caching  = 0
     let g:ctrlp_types        = ['buf', 'fil']
     let g:ctrlp_extensions   = ['buffertag']
-
-    set grepprg=ag\ --vimgrep\ $*
-    set grepformat=%f:%l:%c:%m
   endif
 " }
 
@@ -164,38 +168,38 @@ augroup END
 " }
 
 "statusline {
-hi User1 guifg=#FFFFFF guibg=#191f26
-hi User2 guifg=#000000 guibg=#959ca6 gui=BOLD
-hi User3 guifg=#acacac guibg=#595959
+  hi User1 guifg=#FFFFFF guibg=#191f26
+  hi User2 guifg=#000000 guibg=#959ca6 gui=BOLD
+  hi User3 guifg=#acacac guibg=#595959
 
-set statusline=
-set statusline+=%2*\ %{g:currentmode[mode()]}\ %*
-set statusline+=%1*\ %.20{StatuslineGit()}
-set statusline+=%1*\ \|\ %.80f\ %m
-set statusline+=%=%{ObsessionStatus()}
-set statusline+=\ \|\ %y\ %*
-set statusline+=%3*
-set statusline+=%3*\ %3p%%\ %*
-set statusline+=%*\ %5l:%-4c
+  set statusline=
+  set statusline+=%2*\ %{g:currentmode[mode()]}\ %*
+  set statusline+=%1*\ %.20{StatuslineGit()}
+  set statusline+=%1*\ \|\ %.80f\ %m
+  set statusline+=%=%{ObsessionStatus()}
+  set statusline+=\ \|\ %y\ %*
+  set statusline+=%3*
+  set statusline+=%3*\ %3p%%\ %*
+  set statusline+=%*\ %5l:%-4c
 
-let g:currentmode={
-      \ 'n': 'NORMAL',
-      \ 'v': 'VISUAL',
-      \ 'V': 'V-LINE',
-      \ "\<C-v>": 'V-BLOCK',
-      \ 'i': 'INSERT',
-      \ 'R': 'REPLACE',
-      \ 'Rv': 'V-REPLACE',
-      \ 'c': 'COMMAND',
-      \ 's' : 'SELECT',
-      \ 'S' : 'S-LINE',
-      \ "\<C-s>": 'S-BLOCK',
-      \ 't': 'TERMINAL',
-    \}
+  let g:currentmode={
+        \ 'n': 'NORMAL',
+        \ 'v': 'VISUAL',
+        \ 'V': 'V-LINE',
+        \ "\<C-v>": 'V-BLOCK',
+        \ 'i': 'INSERT',
+        \ 'R': 'REPLACE',
+        \ 'Rv': 'V-REPLACE',
+        \ 'c': 'COMMAND',
+        \ 's' : 'SELECT',
+        \ 'S' : 'S-LINE',
+        \ "\<C-s>": 'S-BLOCK',
+        \ 't': 'TERMINAL',
+      \}
 
-function! StatuslineGit()
-  return exists('*FugitiveHead') ? FugitiveHead(7) : ''
-endfunction
+  function! StatuslineGit()
+    return exists('*FugitiveHead') ? FugitiveHead(7) : ''
+  endfunction
 " }
 
 " Go {

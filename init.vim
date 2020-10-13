@@ -156,7 +156,6 @@ augroup END
   inoremap jk <esc>
 
   nnoremap <Leader>m :Make<CR><C-w><Up>
-
   nnoremap <F9> :Dispatch<CR>
 
   nnoremap <Leader>w :up<CR>

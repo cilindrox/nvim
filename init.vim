@@ -214,8 +214,3 @@ augroup END
   vnoremap btoa c<c-r>=system('base64 --decode', @")<cr><esc>
   vnoremap atob c<c-r>=system('base64 -w 0', @")<cr><esc>
 " }
-
-" minpac {
-  command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
-  command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
-" }

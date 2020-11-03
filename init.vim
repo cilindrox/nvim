@@ -10,7 +10,7 @@ source ~/.config/nvim/packages.vim
   set noshowmode             " Disable default mode indicator.
   set numberwidth=5
   set formatoptions+=r       " Continue comment marker in new lines.
-  set textwidth=100          " Break lines at 100 chars. Draw vertical margin.
+  set textwidth=80           " Break lines at 80 chars. Draw vertical margin.
   set colorcolumn=+1
   set linespace=0            " Set line-spacing to minimum.
   set noerrorbells
@@ -64,7 +64,8 @@ source ~/.config/nvim/packages.vim
   " assumes a POSIX-compatible shell for syntax when script is /bin/sh
   let g:is_posix=1
 
-  " netrw use tree style, disable banner
+  " netrw use 'long' info style, disable banner
+  let g:netrw_liststyle=1
   let g:netrw_altv=1
   let g:netrw_banner=0
   let g:netrw_browse_split=0
@@ -127,7 +128,7 @@ augroup END
     set grepformat=%f:%l:%c:%m
 
     " Use ag in CtrlP for listing files.
-    let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
+    let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" %s'
     let g:ctrlp_use_caching  = 0
     let g:ctrlp_types        = ['buf', 'fil']
     let g:ctrlp_extensions   = ['buffertag']

@@ -47,7 +47,7 @@ source ~/.config/nvim/packages.vim
   set isfname-==
   set isfname-=+
 
-  set timeoutlen=500         " User input timeout window
+  set timeoutlen=600         " User input timeout window
 
   " Blinking block cursor
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -117,7 +117,6 @@ augroup END
 " }
 
 " Completion {
-  let g:UltiSnipsExpandTrigger       = '<tab>'
   let g:UltiSnipsJumpForwardTrigger  = '<tab>'
   let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " }

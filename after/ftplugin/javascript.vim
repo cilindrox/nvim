@@ -1,8 +1,8 @@
-let b:dispatch='/Users/cx/.nvm/versions/node/v12.16.1/bin/npm t'
+let b:dispatch='npm t'
 compiler eslint
 setlocal foldmethod=syntax
+setlocal path-=$PWD/node_modules
 
-augroup JS
-  autocmd!
+augroup jslint
   autocmd BufWritePost <buffer> :Make
 augroup END

@@ -159,6 +159,7 @@ augroup END
   nnoremap <F9> :Dispatch<CR>
 
   nnoremap <Leader>w :up<CR>
+  nnoremap <Leader>b :ls<CR>:buffer<Space>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
 
@@ -203,5 +204,5 @@ augroup END
 
 " base64 helpers {
   vnoremap btoa c<c-r>=system('base64 --decode', @")<cr><esc>
-  vnoremap atob c<c-r>=system('base64 -w 0', @")<cr><esc>
+  vnoremap atob c<c-r>=system('base64 --wrap 0', @")<cr><esc>
 " }

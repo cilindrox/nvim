@@ -73,7 +73,7 @@ source ~/.config/nvim/packages.vim
 " }
 
 " copy when on remote sessions {
-  function! Osc52Yank()
+  function! Osc52Yank() abort
     let buffer=system('base64 -w0', @0)
     let buffer=substitute(buffer, "\n$", "", "")
     let buffer='\e]52;c;'.buffer.'\x07'
@@ -90,18 +90,17 @@ augroup vimrcIni
   autocmd!
 
   " Disable undo for temp and sensitive files
-  au BufWritePre /tmp/* setlocal noundofile
+  autocmd BufWritePre /tmp/* setlocal noundofile
 
-  au BufLeave,FocusLost,InsertEnter * :set norelativenumber
-  au BufEnter,FocusGained,InsertLeave * :set relativenumber number
+  autocmd BufLeave,FocusLost,InsertEnter * :set norelativenumber
+  autocmd BufEnter,FocusGained,InsertLeave * :set relativenumber number
 
-  " Autoread buffer contents on focus change
-  au FocusGained * :checktime
+  autocmd FocusGained * :checktime
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
-  au BufReadPost *
+  autocmd BufReadPost *
     \ if &ft !=? 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
@@ -197,7 +196,7 @@ augroup END
         \ 't': 'TERMINAL',
       \}
 
-  function! StatuslineGit()
+  function! StatuslineGit() abort
     return exists('*FugitiveHead') ? FugitiveHead(7) : ''
   endfunction
 " }

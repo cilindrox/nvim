@@ -1,1 +1,1 @@
-au BufNewFile,BufReadPost [Pp]rocfile set filetype=ruby
+autocmd BufNewFile,BufReadPost [Pp]rocfile setf ruby

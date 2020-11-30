@@ -63,6 +63,7 @@
   let g:is_posix=1
 
   " netrw use 'long' info style, disable banner
+  let g:netrw_fastbrowse=0
   let g:netrw_liststyle=1
   let g:netrw_altv=1
   let g:netrw_banner=0

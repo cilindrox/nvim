@@ -1,4 +1,4 @@
-au BufRead,BufNewFile *.nginx set ft=nginx
-au BufRead,BufNewFile */etc/nginx/* set ft=nginx
-au BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
-au BufRead,BufNewFile nginx.conf set ft=nginx
+autocmd BufRead,BufNewFile *.nginx setf nginx
+autocmd BufRead,BufNewFile */etc/nginx/* setf nginx
+autocmd BufRead,BufNewFile */usr/local/nginx/conf/* setf nginx
+autocmd BufRead,BufNewFile nginx.conf setf nginx

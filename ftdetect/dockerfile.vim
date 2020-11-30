@@ -1,1 +1,1 @@
-au BufNewFile,BufRead [Dd]ockerfile,Dockerfile.* set filetype=dockerfile
+autocmd BufNewFile,BufRead [Dd]ockerfile,Dockerfile.* setf dockerfile

@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.bats        set filetype=sh
+autocmd BufRead,BufNewFile *.bats setf sh

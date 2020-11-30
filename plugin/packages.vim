@@ -42,3 +42,20 @@ endfunction
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 command! PackStatus source $MYVIMRC | call PackInit() | call minpac#status()
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
+
+" Plugin config {{{
+let g:ctrlp_use_caching  = 0
+let g:ctrlp_types        = ['buf', 'fil']
+let g:ctrlp_extensions   = ['buffertag']
+
+let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+let g:go_fmt_command = 'goimports'
+let g:go_highlight_build_constraints = 1
+let g:go_textobj_include_function_doc = 1
+let g:go_addtags_transform = "camelcase"
+let g:go_metalinter_autosave = 1
+
+let g:rustfmt_autosave = 1
+" }}}

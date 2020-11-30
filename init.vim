@@ -40,6 +40,7 @@
 
   " Display extra whitespace.
   set list listchars=tab:»·,trail:·,nbsp:·,eol:¬
+
   " Remove special characters from filename.
   set isfname-=:
   set isfname-==
@@ -113,11 +114,6 @@ augroup END
   " hi Search guibg=peru guifg=wheat
 " }
 
-" Completion {
-  let g:UltiSnipsJumpForwardTrigger  = '<tab>'
-  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-" }
-
 " The Silver Searcher {
   if executable('ag')
     set grepprg=ag\ --vimgrep\ $*
@@ -125,9 +121,6 @@ augroup END
 
     " Use ag in CtrlP for listing files.
     let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" %s'
-    let g:ctrlp_use_caching  = 0
-    let g:ctrlp_types        = ['buf', 'fil']
-    let g:ctrlp_extensions   = ['buffertag']
   endif
 " }
 
@@ -162,6 +155,10 @@ augroup END
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
+
+  " Base64 helpers
+  vnoremap btoa c<c-r>=system('base64 --decode', @")<cr><esc>
+  vnoremap atob c<c-r>=system('base64 --wrap 0', @")<cr><esc>
 " }
 
 "statusline {
@@ -197,9 +194,4 @@ augroup END
   function! StatuslineGit() abort
     return exists('*FugitiveHead') ? FugitiveHead(7) : ''
   endfunction
-" }
-
-" base64 helpers {
-  vnoremap btoa c<c-r>=system('base64 --decode', @")<cr><esc>
-  vnoremap atob c<c-r>=system('base64 --wrap 0', @")<cr><esc>
 " }

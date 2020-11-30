@@ -124,8 +124,7 @@ augroup END
   endif
 " }
 
-" Shortcuts {
-  " Map the leader key to SPACE
+" Mappings {
   let mapleader="\<SPACE>"
 
   " Quicker window movement
@@ -161,7 +160,7 @@ augroup END
   vnoremap atob c<c-r>=system('base64 --wrap 0', @")<cr><esc>
 " }
 
-"statusline {
+" Statusline {
   hi User1 guifg=#FFFFFF guibg=#191f26
   hi User2 guifg=#000000 guibg=#959ca6 gui=BOLD
   hi User3 guifg=#acacac guibg=#595959

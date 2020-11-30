@@ -11,7 +11,6 @@
   set textwidth=80           " Break lines at 80 chars. Draw vertical margin.
   set colorcolumn=+1
   set linespace=0            " Set line-spacing to minimum.
-  set noerrorbells
   set nomodeline
   set nostartofline          " Do not jump to first character with page commands.
   set nojoinspaces           " Don't add extra space after .! etc. when joining.

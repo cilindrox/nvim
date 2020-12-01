@@ -1,8 +1,3 @@
-if exists('current_compiler')
-  finish
-endif
-let current_compiler = 'vint'
-
 CompilerSet makeprg=vint\ --style-problem\ --no-color\ -f\ \'{file_path}:{line_number}:{column_number}:{severity}:{description}\ ({policy_name})\'\ %
 
 CompilerSet errorformat=

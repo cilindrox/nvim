@@ -1,8 +1,3 @@
-if exists('current_compiler')
-  finish
-endif
-let current_compiler = 'eslint'
-
 CompilerSet makeprg=eslint\ -f\ compact\ %
 
 " https://vi.stackexchange.com/a/18849

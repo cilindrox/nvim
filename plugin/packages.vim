@@ -19,6 +19,7 @@ function! PackInit() abort
   call minpac#add('junegunn/vim-easy-align')
   call minpac#add('mustache/vim-mustache-handlebars')
   call minpac#add('nelstrom/vim-visual-star-search')
+  call minpac#add('nginx/nginx', {'subdir': 'contrib/vim'})
   call minpac#add('pangloss/vim-javascript')
   call minpac#add('plasticboy/vim-markdown')
   call minpac#add('rust-lang/rust.vim')
@@ -54,7 +55,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_build_constraints = 1
 let g:go_textobj_include_function_doc = 1
-let g:go_addtags_transform = "camelcase"
+let g:go_addtags_transform = 'camelcase'
 let g:go_metalinter_autosave = 1
 
 let g:rustfmt_autosave = 1

@@ -1,1 +1,1 @@
-CompilerSet makeprg=shellcheck\ -f\ gcc\ %
+CompilerSet makeprg=shellcheck\ -f\ gcc\ --\ %:S

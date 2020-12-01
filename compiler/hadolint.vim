@@ -3,6 +3,6 @@ if exists('current_compiler')
 endif
 let current_compiler = 'hadolint'
 
-setlocal makeprg=hadolint\ --format\ tty\ %
+CompilerSet makeprg=hadolint\ --format\ tty\ %
 
 CompilerSet errorformat=%f:%l\ %m

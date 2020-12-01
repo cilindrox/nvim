@@ -3,7 +3,7 @@ if exists('current_compiler')
 endif
 let current_compiler = 'eslint'
 
-setlocal makeprg=eslint\ -f\ compact\ %
+CompilerSet makeprg=eslint\ -f\ compact\ %
 
 " https://vi.stackexchange.com/a/18849
 CompilerSet errorformat=

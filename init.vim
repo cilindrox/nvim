@@ -36,6 +36,7 @@
   set splitbelow             " Horizontal split below current.
   set splitright             " Vertical split to right of current.
   set diffopt+=vertical      " Always use vertical diffs.
+  " set lazyredraw             " Skip screen redraw during macro execution
 
   " Display extra whitespace.
   set list listchars=tab:»·,trail:·,nbsp:·,eol:¬

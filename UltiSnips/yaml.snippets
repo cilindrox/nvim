@@ -171,6 +171,38 @@ metadata:
 	name: ${1:name}
 endsnippet
 
+snippet quo "ResourceQuota" !b
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+	name: ${1:name}
+spec:
+	hard:
+		requests.cpu: ${2:"1"}
+		requests.memory: ${3:8Gi}
+		limits.cpu: ${4:"2"}
+		limits.memory: ${4:16Gi}
+	# scopeSelector:
+		# matchExpressions:
+		# - scopeName: PriorityClass
+			# operator: In
+			# values: ["high"]
+
+snippet lim "LimitRange" !b
+apiVersion: v1
+kind: LimitRange
+metadata:
+	name: ${1:name}
+spec:
+	limits:
+	- max:
+			cpu: ${2:"1000"}
+			memory: ${3:16Gi}
+		min:
+			cpu: ${4:0.1}
+			memory: ${5:128Mi}
+		type: Container
+
 snippet sa "ServiceAccount" !b
 apiVersion: v1
 kind: ServiceAccount

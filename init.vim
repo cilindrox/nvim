@@ -16,7 +16,7 @@
   set nojoinspaces           " Don't add extra space after .! etc. when joining.
   set nofoldenable           " Don't fold by default.
   set foldmethod=indent
-  set foldnestmax=4
+  set foldnestmax=6
   set ignorecase             " Ignores case when searching.
   set smartcase              " ...Unless you put some caps in your search term.
   set fileignorecase
@@ -115,12 +115,16 @@ augroup END
   " hi Search guibg=peru guifg=wheat
 " }
 
+" Use rg in CtrlP and grep for listing files {
+  if executable('rg')
+    set grepprg=rg\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
+    let g:ctrlp_user_command = 'rg --fixed-strings --files-with-matches --color=never --hidden "" %s'
+" }
 " The Silver Searcher {
-  if executable('ag')
+  elseif executable('ag')
     set grepprg=ag\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m
-
-    " Use ag in CtrlP for listing files.
     let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" %s'
   endif
 " }

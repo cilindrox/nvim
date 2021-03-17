@@ -45,9 +45,12 @@ command! PackStatus source $MYVIMRC | call PackInit() | call minpac#status()
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 
 " Plugin config {{{
-let g:ctrlp_use_caching  = 0
-let g:ctrlp_types        = ['buf', 'fil']
-let g:ctrlp_extensions   = ['buffertag']
+let g:ctrlp_extensions        = ['buffertag']
+let g:ctrlp_reuse_window      = 'netrw'
+let g:ctrlp_switch_buffer     = 'et'
+let g:ctrlp_types             = ['buf', 'fil']
+let g:ctrlp_use_caching       = 0
+let g:ctrlp_working_path_mode = 'ra'
 
 let g:UltiSnipsJumpForwardTrigger  = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'

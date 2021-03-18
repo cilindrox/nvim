@@ -120,12 +120,6 @@ augroup END
     set grepprg=rg\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m
     let g:ctrlp_user_command = 'rg --fixed-strings --files-with-matches --color=never --hidden "" %s'
-" }
-" The Silver Searcher {
-  elseif executable('ag')
-    set grepprg=ag\ --vimgrep\ $*
-    set grepformat=%f:%l:%c:%m
-    let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden --filename-pattern "" %s'
   endif
 " }
 

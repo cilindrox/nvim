@@ -1,12 +1,12 @@
 " Configuration {
   set showmatch              " Show matching brackets.
   set number                 " Show the line numbers on the left side.
+  set numberwidth=5
   set relativenumber         " Hybrid line numbering.
   set cursorline             " Highlight the current line.
   set autowrite              " Automatically save before :next, :make etc.
   set hidden                 " Hide unsaved buffers.
   set noshowmode             " Disable default mode indicator.
-  set numberwidth=5
   set formatoptions+=r       " Continue comment marker in new lines.
   set textwidth=80           " Break lines at 80 chars. Draw vertical margin.
   set colorcolumn=+1

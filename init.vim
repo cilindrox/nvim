@@ -47,7 +47,7 @@
   set isfname-==
   set isfname-=+
 
-  set timeoutlen=600         " User input timeout window
+  set timeoutlen=700         " User input timeout window
 
   " Blinking block cursor
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -140,6 +140,9 @@ augroup END
   " Beginning and end of line shortcuts in command mode
   cnoremap <C-a> <Home>
   cnoremap <C-e> <End>
+  " Alt+L/R to jump words
+  cnoremap <A-Left> <S-Left>
+  cnoremap <A-Right> <S-Right>
 
   " <jk> exits insert mode
   inoremap jk <esc>
@@ -149,6 +152,7 @@ augroup END
 
   nnoremap <Leader>w :up<CR>
   nnoremap <Leader>b :ls<CR>:buffer<Space>
+  nnoremap <Leader>. :CtrlPTag<cr>
   nnoremap c> *``cgn
   nnoremap c< #``cgN
 

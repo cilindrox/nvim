@@ -13,4 +13,8 @@ jobs:
       uses: github/super-linter@v3.17.1
       env:
         DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         LOG_LEVEL: NOTICE
+        SUPPRESS_POSSUM: false
+        VALIDATE_DOCKERFILE: false
+        VALIDATE_DOCKERFILE_HADOLINT: false

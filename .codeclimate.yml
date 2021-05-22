@@ -1,7 +1,0 @@
-engines:
-  vint:
-    enabled: true
-
-ratings:
-  paths:
-    - "**.vim"

@@ -76,9 +76,9 @@
 " copy when on remote sessions {
   function! Osc52Yank() abort
     let buffer=system('base64 -w0', @0)
-    let buffer=substitute(buffer, "\n$", "", "")
+    let buffer=substitute(buffer, "\n$", '', '')
     let buffer='\e]52;c;'.buffer.'\x07'
-    silent exe "!echo -ne ".shellescape(buffer)." > $SSH_TTY"
+    silent exe '!echo -ne '.shellescape(buffer).' > $SSH_TTY'
   endfunction
   command! Osc52CopyYank call Osc52Yank()
   augroup clipboardOsc52

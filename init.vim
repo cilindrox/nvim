@@ -157,9 +157,9 @@ augroup END
 
   set statusline=
   set statusline+=%2*\ %{g:currentmode[mode()]}\ %*
-  set statusline+=%1*\ %.20{StatuslineGit()}
-  set statusline+=%1*\ \|\ %.80f\ %m
+  set statusline+=%1*\ %.80f\ %m
   set statusline+=%=%{ObsessionStatus()}
+  set statusline+=%1*\ %.20{StatuslineGit()}
   set statusline+=\ \|\ %y\ %*
   set statusline+=%3*
   set statusline+=%3*\ %3p%%\ %*

@@ -184,3 +184,7 @@ augroup END
     return exists('*FugitiveHead') ? FugitiveHead(7) : ''
   endfunction
 " }
+
+" vimdiff {
+  set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+" }

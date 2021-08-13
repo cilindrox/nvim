@@ -14,7 +14,6 @@ function! PackInit() abort
   call minpac#add('editorconfig/editorconfig-vim')
   call minpac#add('elzr/vim-json')
   call minpac#add('fatih/vim-go')
-  call minpac#add('google/vim-jsonnet')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('junegunn/vim-easy-align')
   call minpac#add('mustache/vim-mustache-handlebars')
@@ -56,7 +55,9 @@ let g:UltiSnipsJumpForwardTrigger  = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 let g:go_addtags_transform           = 'camelcase'
-" let g:go_fmt_command                 = 'gopls'
+" let g:go_def_mode    = 'gopls'
+" let g:go_info_mode   = 'gopls'"
+" let g:go_fmt_command = 'gopls'
 let g:go_highlight_build_constraints = 1
 let g:go_metalinter_autosave         = 1
 

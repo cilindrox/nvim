@@ -9,6 +9,7 @@ _site
 *.orig
 *.log
 *.rej
+*.spl
 *.swo
 *.swp
 *.zip

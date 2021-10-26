@@ -35,7 +35,7 @@
   set shiftround
   set splitbelow             " Horizontal split below current.
   set splitright             " Vertical split to right of current.
-  set diffopt+=vertical      " Always use vertical diffs.
+  set diffopt+=algorithm:histogram,indent-heuristic,vertical
   " set lazyredraw             " Skip screen redraw during macro execution
   set path=.,**
 
@@ -184,8 +184,4 @@ augroup END
   function! StatuslineGit() abort
     return exists('*FugitiveHead') ? FugitiveHead(7) : ''
   endfunction
-" }
-
-" vimdiff {
-  set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 " }

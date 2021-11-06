@@ -38,6 +38,7 @@
   set diffopt+=algorithm:histogram,indent-heuristic,vertical
   " set lazyredraw             " Skip screen redraw during macro execution
   set path=.,**
+  set complete+=i,kspell
 
   " Display extra whitespace.
   set list listchars=tab:»·,trail:·,nbsp:·,eol:¬

@@ -52,7 +52,7 @@
   set timeoutlen=700
 
   " Blinking block cursor
-  set guicursor=n-v-c:block,i-ci-ve:ver25-iCursor,r-cr:hor20,o:hor50
+  set guicursor=n-v-c:block,i-ci-ve:ver45-iCursor,r-cr:hor20,o:hor50
     \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
     \,sm:block-blinkwait175-blinkoff150-blinkon175
 

@@ -152,7 +152,11 @@ augroup END
   vnoremap atob c<c-r>=system('base64 --wrap 0', @")<cr><esc>
 " }
 
-" Statusline {
+" Git {
+function! ToggleColors()
+  if &diff | colorscheme base16-flat | else | colorscheme base16-grayscale-light | endif
+
+  " Statusline {
   hi User1 guifg=#FFFFFF guibg=#191f26
   hi User2 guifg=#000000 guibg=#959ca6 gui=BOLD
   hi User3 guifg=#acacac guibg=#595959
@@ -181,8 +185,17 @@ augroup END
         \ "\<C-s>": 'S-BLOCK',
         \ 't': 'TERMINAL',
       \}
-
-  function! StatuslineGit() abort
-    return exists('*FugitiveHead') ? FugitiveHead(7) : ''
-  endfunction
+  " }
+endfunction
 " }
+
+function! StatuslineGit() abort
+  return exists('*FugitiveHead') ? FugitiveHead(7) : ''
+endfunction
+
+call ToggleColors()
+
+augroup VimDiff
+  autocmd!
+  autocmd OptionSet diff ++nested call ToggleColors()
+augroup END

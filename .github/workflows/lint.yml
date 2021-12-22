@@ -18,3 +18,9 @@ jobs:
         SUPPRESS_POSSUM: false
         VALIDATE_DOCKERFILE: false
         VALIDATE_DOCKERFILE_HADOLINT: false
+
+    - name: vint
+      uses: reviewdog/action-vint@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        reporter: github-pr-review

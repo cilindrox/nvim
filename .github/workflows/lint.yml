@@ -4,10 +4,10 @@ on: push
 jobs:
   lint:
     name: Lint files
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Run Super-Linter
       uses: docker://ghcr.io/github/super-linter:slim-v4
@@ -20,7 +20,7 @@ jobs:
         VALIDATE_DOCKERFILE_HADOLINT: false
 
     - name: vint
-      uses: reviewdog/action-vint@v1
+      uses: reviewdog/action-vint@v1.8.0
       with:
         github_token: ${{ secrets.github_token }}
         reporter: github-pr-review

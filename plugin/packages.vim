@@ -50,6 +50,9 @@ let g:ctrlp_switch_buffer     = 'et'
 let g:ctrlp_types             = ['buf', 'fil']
 let g:ctrlp_use_caching       = 0
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_buftag_types = {
+  \'terraform' : '--languages=+Terraform'
+  \}
 
 let g:UltiSnipsJumpForwardTrigger  = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'

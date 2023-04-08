@@ -31,6 +31,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-obsession')
   call minpac#add('tpope/vim-projectionist')
   call minpac#add('tpope/vim-repeat')
+  call minpac#add('tpope/vim-rhubarb')
   call minpac#add('tpope/vim-sensible')
   call minpac#add('tpope/vim-speeddating')
   call minpac#add('tpope/vim-surround')

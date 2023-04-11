@@ -1,13 +1,13 @@
 snippet var "Variable definition" b
 variable "${1:name}" \{
 	description = "${2}"
-	type        = "${3}"
-	default     = "${4}"
+	type        = ${3}
+	default     = ${4}
 \}
 endsnippet
 
 snippet out "Output definition" b
 output "${1:name}" \{
-	value = "\$\{${2}\}"
+	value = \$\{${2}\}
 \}
 endsnippet

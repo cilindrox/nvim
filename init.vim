@@ -150,6 +150,11 @@ augroup END
   " Base64 helpers
   vnoremap btoa c<c-r>=system('base64 --decode', @")<cr><esc>
   vnoremap atob c<c-r>=system('base64 --wrap 0', @")<cr><esc>
+
+  " Open files in the same as the current buffer
+  nnoremap <Leader>e :e <C-R>=expand("%:h") . "/" <CR>
+  nnoremap <Leader>t :tabe <C-R>=expand("%:h") . "/" <CR>
+  nnoremap <Leader>s :split <C-R>=expand("%:h") . "/" <CR>
 " }
 
 " Git {

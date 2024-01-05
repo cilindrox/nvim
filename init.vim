@@ -155,6 +155,7 @@ augroup END
   nnoremap <Leader>e :e <C-R>=expand("%:h") . "/" <CR>
   nnoremap <Leader>t :tabe <C-R>=expand("%:h") . "/" <CR>
   nnoremap <Leader>s :split <C-R>=expand("%:h") . "/" <CR>
+  nnoremap <Leader>v :vsplit <C-R>=expand("%:h") . "/" <CR>
 " }
 
 " Git {

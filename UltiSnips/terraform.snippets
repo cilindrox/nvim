@@ -11,3 +11,17 @@ output "${1:name}" \{
 	value = \$\{${2}\}
 \}
 endsnippet
+
+snippet imp "Import block" b
+import \{
+	to = ${1}
+	id = "${2}"
+\}
+endsnippet
+
+snippet mov "Moved block" b
+moved \{
+	from = ${1:module}
+	to = ${2:module}
+\}
+endsnippet

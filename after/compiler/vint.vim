@@ -1,4 +1,4 @@
-CompilerSet makeprg=vint\ --style-problem\ --no-color\ -f\ \'{file_path}:{line_number}:{column_number}:{severity}:{description}\ ({policy_name})\'\ %
+CompilerSet makeprg=vint\ --style-problem\ --no-color\ -f\ \'{file_path}:{line_number}:{column_number}:{severity}:{description}\ ({policy_name})\'\ %:S
 
 CompilerSet errorformat=
       \%I%f:%l:%c:style_problem:%m,

@@ -1,4 +1,4 @@
-CompilerSet makeprg=eslint\ -f\ compact\ %
+CompilerSet makeprg=eslint\ -f\ compact\ %:S
 
 " https://vi.stackexchange.com/a/18849
 CompilerSet errorformat=

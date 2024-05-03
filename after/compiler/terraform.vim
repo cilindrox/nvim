@@ -1,1 +1,1 @@
-CompilerSet makeprg=tflint\ --no-color\ --filter=%
+CompilerSet makeprg=tflint\ --no-color\ --filter=%:S

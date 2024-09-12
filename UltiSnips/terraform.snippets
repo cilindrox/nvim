@@ -20,9 +20,19 @@ import \{
 \}
 endsnippet
 
-snippet mov "Moved block" b
+snippet mv "Moved block" b
 moved \{
 	from = ${1:module}
-	to = ${2:module}
+	to   = ${2:module}
+\}
+endsnippet
+
+snippet rm "Removed block" b
+removed \{
+	from = ${1:module}
+
+	lifecycle \{
+		destroy = ${2:false}
+	\}
 \}
 endsnippet

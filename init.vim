@@ -148,6 +148,8 @@ augroup END
   nnoremap c> *``cgn
   nnoremap c< #``cgN
 
+  nnoremap <Leader>r :%s/<C-r><C-a>//g<Left><Left>
+
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
 

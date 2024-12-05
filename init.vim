@@ -98,10 +98,14 @@ augroup END
 " Theme {
   syntax enable
   set termguicolors
-  colorscheme base16-grayscale-light
 
-  hi Comment cterm=italic gui=italic
-  " hi Search guibg=peru guifg=wheat
+  augroup colorschemes
+    autocmd!
+    autocmd ColorScheme base16-grayscale-light highlight QuickFixLine ctermfg=14 ctermbg=10 guifg=NvimDarkGrey1 guibg=NvimLightGrey3
+    autocmd ColorScheme base16-grayscale-light highlight Comment cterm=italic gui=italic
+  augroup end
+
+  colorscheme base16-grayscale-light
 " }
 
 " Use rg in CtrlP and grep for listing files {

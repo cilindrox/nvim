@@ -119,6 +119,12 @@ augroup END
 " Mappings {
   let mapleader="\<SPACE>"
 
+  " remove the awful nvim GLOBAL mappings
+  nunmap gra
+  nunmap gri
+  nunmap grn
+  nunmap grr
+
   " Quicker window movement
   nnoremap <C-h> <C-w>h
   nnoremap <C-j> <C-w>j

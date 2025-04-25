@@ -21,7 +21,6 @@ function! PackInit() abort
   call minpac#add('nginx/nginx', {'subdir': 'contrib/vim'})
   call minpac#add('pangloss/vim-javascript')
   call minpac#add('plasticboy/vim-markdown')
-  call minpac#add('rust-lang/rust.vim')
   call minpac#add('tpope/vim-abolish')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('tpope/vim-dispatch')

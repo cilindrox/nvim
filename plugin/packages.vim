@@ -35,8 +35,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-speeddating')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
-  call minpac#add('vim-scripts/ReplaceWithRegister')
-
+  call minpac#add('inkarkat/vim-ReplaceWithRegister')
 endfunction
 
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()

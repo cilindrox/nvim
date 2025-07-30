@@ -15,6 +15,7 @@ function! PackInit() abort
   call minpac#add('elzr/vim-json')
   call minpac#add('fatih/vim-go')
   call minpac#add('hashivim/vim-terraform')
+  call minpac#add('inkarkat/vim-ReplaceWithRegister')
   call minpac#add('junegunn/vim-easy-align')
   call minpac#add('mustache/vim-mustache-handlebars')
   call minpac#add('nelstrom/vim-visual-star-search')
@@ -35,7 +36,6 @@ function! PackInit() abort
   call minpac#add('tpope/vim-speeddating')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
-  call minpac#add('inkarkat/vim-ReplaceWithRegister')
 endfunction
 
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()

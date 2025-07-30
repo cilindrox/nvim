@@ -24,7 +24,6 @@
   set gdefault               " Use 'g' flag by default with :s/foo/bar/.
   set magic                  " Use extended regular expressions.
   set wildmode=longest:full,full
-  set inccommand=nosplit     " Incrementally highlight substitution command.
   set undofile               " Enable undo history, disable swap.
   set undodir=$HOME/.config/nvim/undo//
   set noswapfile
@@ -119,11 +118,9 @@ augroup END
 " Mappings {
   let mapleader="\<SPACE>"
 
-  " remove the awful nvim GLOBAL mappings
-  nunmap gra
-  nunmap gri
-  nunmap grn
-  nunmap grr
+  nmap gr <Plug>ReplaceWithRegisterOperator
+  nmap grr <Plug>ReplaceWithRegisterLine
+  xmap gr <Plug>ReplaceWithRegisterVisual
 
   " Quicker window movement
   nnoremap <C-h> <C-w>h

@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Configuration {
   set showmatch              " Show matching brackets.
   set number                 " Show the line numbers on the left side.

@@ -1,9 +1,9 @@
-" Sends the default register to $SSH_TTY using OSC 52 on remote sessions
+" Sends the default register to current terminal using OSC 52
 function! Osc52Yank() abort
   let buffer=system('base64 -w0', @0)
   let buffer=substitute(buffer, "\n$", '', '')
   let buffer='\e]52;c;'.buffer.'\x07'
-  silent exe '!echo -ne '.shellescape(buffer).' > $SSH_TTY'
+  silent exe '!echo -ne '.shellescape(buffer).' > '.shellescape('/dev/tty')
 endfunction
 
 command! Osc52CopyYank call Osc52Yank()

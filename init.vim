@@ -21,13 +21,14 @@ scriptencoding utf-8
   set foldnestmax=6
   set ignorecase             " Ignores case when searching.
   set smartcase              " ...Unless you put some caps in your search term.
+  set hlsearch               " Highlight all search matches.
   set fileignorecase
   set wildignorecase
   set gdefault               " Use 'g' flag by default with :s/foo/bar/.
   set magic                  " Use extended regular expressions.
   set wildmode=longest:full,full
   set undofile               " Enable undo history, disable swap.
-  set undodir=$HOME/.config/nvim/undo//
+  set undodir=$HOME/.vim/undo//
   set noswapfile
   set clipboard+=unnamedplus " Copy to clipboard.
   set expandtab              " Soft tabs, 2 spaces by default.
@@ -99,14 +100,7 @@ augroup END
 " Theme {
   syntax enable
   set termguicolors
-
-  augroup colorschemes
-    autocmd!
-    autocmd ColorScheme base16-grayscale-light highlight QuickFixLine ctermfg=14 ctermbg=10 guifg=NvimDarkGrey1 guibg=NvimLightGrey3
-    autocmd ColorScheme base16-grayscale-light highlight Comment cterm=italic gui=italic
-  augroup end
-
-  colorscheme base16-grayscale-light
+  colorscheme antiphoton
 " }
 
 " Use rg in CtrlP and grep for listing files {
@@ -119,10 +113,6 @@ augroup END
 
 " Mappings {
   let mapleader="\<SPACE>"
-
-  nmap gr <Plug>ReplaceWithRegisterOperator
-  nmap grr <Plug>ReplaceWithRegisterLine
-  xmap gr <Plug>ReplaceWithRegisterVisual
 
   " Quicker window movement
   nnoremap <C-h> <C-w>h
@@ -171,7 +161,7 @@ augroup END
 
 " Git {
 function! ToggleColors()
-  if &diff | colorscheme base16-flat | else | colorscheme base16-grayscale-light | endif
+  if &diff | colorscheme base16-flat | else | colorscheme antiphoton | endif
 
   " Statusline {
   hi User1 guifg=#FFFFFF guibg=#191f26

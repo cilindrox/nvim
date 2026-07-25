@@ -7,13 +7,13 @@ Just my [NeoVim](https://neovim.io) config settings.
 The following installs these settings on your system:
 
 ```bash
-git clone git://github.com/cilindrox/nvim.git \
-    ~/.config/nvim
+git clone git://github.com/cilindrox/vim.git \
+    ~/.config/vim
 
 # Install minpac
 git clone https://github.com/k-takata/minpac.git \
-    ~/.config/nvim/pack/minpac/opt/minpac
+    ~/.config/vim/pack/minpac/opt/minpac
 
 # Start vim and call the plugin manager on your first run
-nvim +PackUpdate +qall
+vim +PackUpdate +qall
 ```

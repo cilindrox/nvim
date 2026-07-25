@@ -28,7 +28,7 @@ scriptencoding utf-8
   set magic                  " Use extended regular expressions.
   set wildmode=longest:full,full
   set undofile               " Enable undo history, disable swap.
-  set undodir=$HOME/.vim/undo//
+  set undodir=$HOME/.config/vim/undo//
   set noswapfile
   set clipboard+=unnamedplus " Copy to clipboard.
   set expandtab              " Soft tabs, 2 spaces by default.

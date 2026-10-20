@@ -17,7 +17,6 @@ function! PackInit() abort
   call minpac#add('inkarkat/vim-ReplaceWithRegister')
   call minpac#add('junegunn/vim-easy-align')
   call minpac#add('mustache/vim-mustache-handlebars')
-  call minpac#add('nginx/nginx', {'subdir': 'contrib/vim'})
   call minpac#add('preservim/vim-markdown')
   call minpac#add('tpope/vim-abolish')
   call minpac#add('tpope/vim-commentary')

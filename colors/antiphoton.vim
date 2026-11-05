@@ -12,7 +12,7 @@ endif
 
 let colors_name = 'antiphoton'
 
-if ($TERM =~ '256' || &t_Co >= 256) || has('gui_running')
+if ($TERM =~# '256' || &t_Co >= 256) || has('gui_running')
     hi Normal ctermbg=231 ctermfg=233 cterm=NONE guibg=#ffffff guifg=#121212 gui=NONE
 
     set background=light

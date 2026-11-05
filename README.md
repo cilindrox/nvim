@@ -7,7 +7,7 @@ Just my Vim config settings.
 The following installs these settings on your system:
 
 ```bash
-git clone git://github.com/cilindrox/vim.git \
+git clone https://github.com/cilindrox/vim.git \
     ~/.config/vim
 
 # Install minpac

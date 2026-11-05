@@ -1,7 +1,9 @@
 name: test
 
 # yamllint disable-line rule:truthy
-on: push
+on:
+- push
+- pull_request
 
 permissions:
   contents: read
@@ -9,15 +11,29 @@ permissions:
 jobs:
   lint:
     name: Lint files
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
       with:
         persist-credentials: false
 
-    - name: vint
-      uses: reviewdog/action-vint@b249164f0c17d7a24aecccea84f2c7e132072731  # v1.17.2
+    - name: Set up Python
+      uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
       with:
-        github_token: ${{ secrets.github_token }}
-        reporter: github-pr-review
+        python-version: '3.14'
+
+    - name: Install Vint
+      run: |
+        python -m pip install --upgrade pip
+        pip install vim-vint
+
+    - name: Register Vint Problem Matcher
+      run: echo "::add-matcher::.github/vint-matcher.json"
+
+    - name: Run Vint Linter
+      run: vint .
+
+    - name: Remove Vint Problem Matcher
+      if: always()
+      run: echo "::remove-matcher owner=vint::"

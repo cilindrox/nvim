@@ -58,6 +58,4 @@ let g:go_addtags_transform           = 'camelcase'
 " let g:go_fmt_command = 'gopls'
 let g:go_highlight_build_constraints = 1
 let g:go_metalinter_autosave         = 1
-
-let g:rustfmt_autosave = 1
 " }}}

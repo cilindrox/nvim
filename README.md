@@ -1,6 +1,6 @@
-# nvim
+# vim
 
-Just my [NeoVim](https://neovim.io) config settings.
+Just my Vim config settings.
 
 ## Installation
 
